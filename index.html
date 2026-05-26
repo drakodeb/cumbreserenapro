@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: sistema más refinado -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- AOS Library para scroll animations (opcional pero pro) -->
+    <!-- AOS Library para scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -25,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -37,14 +36,13 @@
             border-radius: 10px;
         }
 
-        /* container premium */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        /* Header glassmorphism + sticky */
+        /* Header glassmorphism */
         .header {
             position: sticky;
             top: 0;
@@ -191,7 +189,6 @@
             height: 420px;
         }
 
-        /* stats row */
         .stats-row {
             display: flex;
             justify-content: space-between;
@@ -216,7 +213,6 @@
             color: #1f5e4a;
         }
 
-        /* Sección lotes premium */
         .section {
             padding: 5rem 0;
         }
@@ -302,7 +298,6 @@
             color: #2c7a5e;
         }
 
-        /* Galería profesional */
         .gallery-pro {
             background: #fafefaf0;
             border-radius: 48px;
@@ -326,7 +321,6 @@
             filter: brightness(0.95);
         }
 
-        /* Contacto elegante */
         .contact-premium {
             background: #eef5f1;
             border-radius: 40px;
@@ -393,7 +387,7 @@
 </div>
 
 <main>
-    <!-- Hero -->
+    <!-- Hero con imagen gratuita 100% funcional (LoremFlick + Picsum) -->
     <div class="hero-premium">
         <div class="container">
             <div class="hero-grid">
@@ -407,7 +401,7 @@
                     </div>
                 </div>
                 <div class="hero-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=800&h=500&fit=crop" alt="Vista aérea costa lujosa">
+                    <img src="https://picsum.photos/id/104/800/500" alt="Vista aérea costa lujosa" loading="eager">
                 </div>
             </div>
             <div class="stats-row" data-aos="fade-up">
@@ -419,14 +413,14 @@
         </div>
     </div>
 
-    <!-- Lotes destacados -->
+    <!-- Lotes destacados - imágenes fijas de Picsum + Unsplash estables -->
     <div class="container section" id="lots">
         <div class="section-tag">Selección cumbre</div>
         <div class="section-title">Propiedades exclusivas</div>
         <div class="section-subtitle">Terrenos con todos los servicios, escrituración inmediata y proyectos de lujo a tu medida.</div>
         <div class="lots-grid">
             <div class="lot-card-pro" data-aos="zoom-in">
-                <div class="card-img"><img src="https://images.unsplash.com/photo-1493246507139-91e8fadf2c1a?w=600&h=400&fit=crop" alt="lote vista mar"></div>
+                <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="lote vista mar"></div>
                 <div class="card-body">
                     <h3>Lote Mar de Jade</h3>
                     <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
@@ -436,7 +430,7 @@
                 </div>
             </div>
             <div class="lot-card-pro" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card-img"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop" alt="terreno exclusivo"></div>
+                <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="terreno exclusivo"></div>
                 <div class="card-body">
                     <h3>Reserva Miramar</h3>
                     <div><i class="fas fa-map-pin"></i> Costa Serena</div>
@@ -446,7 +440,7 @@
                 </div>
             </div>
             <div class="lot-card-pro" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card-img"><img src="https://images.unsplash.com/photo-1502951682449-e6c3f90c6b87?w=600&h=400&fit=crop" alt="lote frente al mar"></div>
+                <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="lote frente al mar"></div>
                 <div class="card-body">
                     <h3>Villas del Pacífico</h3>
                     <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
@@ -458,18 +452,18 @@
         </div>
     </div>
 
-    <!-- Galería premium free -->
+    <!-- Galería premium con imágenes 100% funcionales y gratuitas (unsplash imágenes directas con ID fijo) -->
     <div class="container" id="gallery">
         <div class="gallery-pro" data-aos="fade-up">
             <div class="section-tag">Inspiración costera</div>
             <div class="section-title" style="font-size: 2rem;">Tu estilo de vida cumbre</div>
             <div class="masonry-grid">
-                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop" alt="mar turquesa">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="atardecer dorado">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop" alt="piscina infinita">
-                <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400&h=300&fit=crop" alt="vista acantilado">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=350&fit=crop" alt="mar turquesa" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&h=350&fit=crop" alt="atardecer dorado" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=350&fit=crop" alt="piscina infinita" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=500&h=350&fit=crop" alt="vista acantilado" loading="lazy">
             </div>
-            <p class="section-subtitle" style="margin-top: 1.5rem;">Escenarios de ensueño · Imágenes libres Unsplash</p>
+            <p class="section-subtitle" style="margin-top: 1.5rem;">Escenarios de ensueño · Imágenes libres Unsplash + Picsum</p>
         </div>
     </div>
 
@@ -507,7 +501,7 @@
 
 <footer>
     <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes de lujo frente al mar</p>
-    <p style="font-size: 0.7rem; margin-top: 8px;">Imágenes gratuitas | Proyecto exclusivo para inversionistas</p>
+    <p style="font-size: 0.7rem; margin-top: 8px;">Imágenes gratuitas Unsplash + Picsum | Proyecto exclusivo</p>
     <div style="margin-top: 12px; font-weight: 500; letter-spacing: 0.5px;">by design@drako2026</div>
 </footer>
 
@@ -517,7 +511,7 @@
 
     // formulario interactivo pro
     const proForm = document.getElementById('proForm');
-    const msgSpan = document.getElementById('proFormMessage');
+    const msgSpan = document.getElementById('formProMessage');
     if(proForm) {
         proForm.addEventListener('submit', (e) => {
             e.preventDefault();
