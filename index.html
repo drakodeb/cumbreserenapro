@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cumbre Serena | Lotes frente al mar · Fondo en movimiento</title>
-    <!-- Font Awesome 6 (CDN liviano) -->
+    <title>Cumbre Serena | Lotes frente al mar · Recorrido Virtual</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts solo un peso ligero -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,6 +20,7 @@
             background-color: #f7fbf9;
             color: #1a2e25;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         .container {
@@ -28,12 +29,12 @@
             padding: 0 40px;
         }
 
-        /* Header glass ligero */
+        /* Header glass */
         .header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(44, 122, 94, 0.15);
         }
@@ -69,6 +70,8 @@
         .nav-links {
             display: flex;
             gap: 1.8rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
@@ -86,8 +89,16 @@
             border-radius: 40px;
             color: white !important;
         }
+        .virtual-link {
+            background: rgba(44, 122, 94, 0.12);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1f5e4a !important;
+            cursor: pointer;
+        }
 
-        /* HERO CON FONDO EN MOVIMIENTO ULTRALIGERO (video mp4 muy pequeño + fallback) */
+        /* Hero con video de fondo ligero */
         .hero-moving {
             position: relative;
             background: #0a2f28;
@@ -96,7 +107,6 @@
             display: flex;
             align-items: center;
         }
-        /* Video de fondo ligero (caché, formato optimizado) */
         .bg-video {
             position: absolute;
             top: 0;
@@ -107,7 +117,6 @@
             z-index: 0;
             pointer-events: none;
         }
-        /* overlay elegante pero sutil */
         .overlay-moving {
             position: absolute;
             top: 0;
@@ -194,10 +203,8 @@
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
             height: 380px;
             object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* Stats row */
         .stats-row {
             display: flex;
             justify-content: space-between;
@@ -208,37 +215,16 @@
             position: relative;
             z-index: 10;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e0f0e8;
             flex-wrap: wrap;
             gap: 0.8rem;
         }
-        .stat-item {
-            text-align: center;
-            flex: 1;
-        }
-        .stat-number {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #1f5e4a;
-        }
+        .stat-item { text-align: center; flex: 1; }
+        .stat-number { font-size: 1.6rem; font-weight: 800; color: #1f5e4a; }
 
-        .section {
-            padding: 4rem 0;
-        }
-        .section-tag {
-            text-align: center;
-            letter-spacing: 2px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #2c7a5e;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #15392e;
-            margin: 0.5rem 0 1rem;
-        }
+        .section { padding: 4rem 0; }
+        .section-tag { text-align: center; letter-spacing: 2px; font-size: 0.7rem; font-weight: 600; color: #2c7a5e; }
+        .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
+
         .lots-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -253,31 +239,11 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             border: 1px solid #e2efe8;
         }
-        .lot-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(44,122,94,0.15);
-        }
-        .card-img {
-            height: 210px;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.4s;
-        }
-        .lot-card:hover .card-img img {
-            transform: scale(1.04);
-        }
-        .card-body {
-            padding: 1.4rem;
-        }
-        .price-tag {
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: #246b53;
-        }
+        .lot-card:hover { transform: translateY(-8px); }
+        .card-img { height: 210px; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .card-body { padding: 1.4rem; }
+        .price-tag { font-size: 1.7rem; font-weight: 800; color: #246b53; }
         .btn-card {
             background: #f2f9f5;
             width: 100%;
@@ -289,6 +255,7 @@
             cursor: pointer;
             color: #2c7a5e;
         }
+
         .gallery-light {
             background: #fafefaf0;
             border-radius: 40px;
@@ -299,12 +266,8 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
-        .mini-gallery img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
+        .mini-gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 20px; }
+
         .contact-premium {
             background: #eef5f1;
             border-radius: 36px;
@@ -313,18 +276,102 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.75rem;
-            color: #618c79;
+        footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #618c79; }
+
+        /* MODAL RECORRIDO VIRTUAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
         }
+        .modal-content {
+            background: #1e2f2a;
+            border-radius: 32px;
+            max-width: 95%;
+            width: 1100px;
+            padding: 1rem;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+        .modal-header h3 {
+            color: white;
+            font-weight: 600;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+        }
+        .virtual-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .panorama-frame {
+            width: 100%;
+            height: 480px;
+            background: #0f2c24;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            transition: background-position 0.1s ease-out;
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
+        }
+        .panorama-frame:active {
+            cursor: grabbing;
+        }
+        .instruccion {
+            color: #c7e9dd;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .drag-hint {
+            background: rgba(0,0,0,0.5);
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        .btn-virtual {
+            background: #2c7a5e;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
         @media (max-width: 800px) {
             .hero-grid { grid-template-columns: 1fr; }
             .hero-title { font-size: 2.2rem; }
             .container { padding: 0 20px; }
             .mini-gallery { grid-template-columns: repeat(2,1fr); }
             .contact-premium { grid-template-columns: 1fr; }
+            .panorama-frame { height: 300px; }
         }
     </style>
 </head>
@@ -343,6 +390,7 @@
             <div class="nav-links">
                 <a href="#">Inicio</a>
                 <a href="#lots">Lotes</a>
+                <a href="#" id="openVirtualBtn" class="virtual-link"><i class="fas fa-vr-cardboard"></i> Recorrido 360°</a>
                 <a href="#gallery">Galería</a>
                 <a href="#contact">Contacto</a>
                 <a href="#" class="nav-cta">Área privada</a>
@@ -351,34 +399,30 @@
     </div>
 </div>
 
-<!-- HERO CON FONDO EN MOVIMIENTO (video ligero de olas - archivo MP4 pequeño CDN) -->
+<!-- Hero con fondo en movimiento -->
 <div class="hero-moving">
     <video class="bg-video" autoplay loop muted playsinline preload="metadata">
-        <!-- Video de olas muy liviano (~300kb de muestra, código embebido confiable desde Pexels CDN / uso de archivo público pequeño) 
-        Usamos un video de olas corto de Pexels (streamable pequeño y optimizado) que carga rápido -->
         <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
-        <!-- Fallback: gradiente animado si el video no carga (nunca se ve roto) -->
     </video>
     <div class="overlay-moving"></div>
     <div class="container hero-content">
         <div class="hero-grid">
             <div data-aos="fade-right">
-                <div class="hero-badge"><i class="fas fa-water"></i>  oceanfront · movimiento perpetuo</div>
-                <h1 class="hero-title">Lotes frente al mar<br> <span>donde el horizonte</span> late en calma</h1>
-                <p class="hero-desc">Inversión premium en la costa más exclusiva. Terrenos con vista infinita, plusvalía y un estilo de vida único.</p>
+                <div class="hero-badge"><i class="fas fa-water"></i> oceanfront · experiencia inmersiva</div>
+                <h1 class="hero-title">Lotes frente al mar<br> <span>recorrido virtual</span> exclusivo</h1>
+                <p class="hero-desc">Explora cada ángulo de nuestros terrenos con nuestro recorrido 360° ficticio. Vive la vista antes de invertir.</p>
                 <div class="btn-group">
-                    <a href="#lots" class="btn-primary"><i class="fas fa-compass"></i> Explorar lotes</a>
-                    <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Agendar visita</a>
+                    <a href="#lots" class="btn-primary"><i class="fas fa-compass"></i> Ver lotes</a>
+                    <a href="#" id="heroVirtualBtn" class="btn-outline-light"><i class="fas fa-vr-cardboard"></i> Tour virtual</a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
-                <img src="https://picsum.photos/id/104/700/450" alt="vista aérea costa de lujo" loading="eager">
+                <img src="https://picsum.photos/id/104/700/450" alt="vista aérea costa de lujo">
             </div>
         </div>
     </div>
 </div>
 
-<!-- Stats flotantes -->
 <div class="container">
     <div class="stats-row">
         <div class="stat-item"><div class="stat-number">+120</div><div>Lotes vendidos</div></div>
@@ -388,7 +432,7 @@
     </div>
 </div>
 
-<!-- Sección Lotes -->
+<!-- Lotes destacados -->
 <div class="container section" id="lots">
     <div class="section-tag">selección cumbre</div>
     <div class="section-title">Propiedades exclusivas</div>
@@ -399,7 +443,7 @@
                 <h3>Lote Mar de Jade</h3>
                 <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
                 <div class="price-tag">$189,000 USD</div>
-                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
+                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
                 <button class="btn-card">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
@@ -409,7 +453,7 @@
                 <h3>Reserva Miramar</h3>
                 <div><i class="fas fa-map-pin"></i> Costa Serena</div>
                 <div class="price-tag">$245,000 USD</div>
-                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
+                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
                 <button class="btn-card">Ver masterplan <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
@@ -419,23 +463,23 @@
                 <h3>Villas del Pacífico</h3>
                 <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
                 <div class="price-tag">$310,000 USD</div>
-                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
+                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
                 <button class="btn-card">Apartar lote <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Galería ligera -->
+<!-- Galería -->
 <div class="container" id="gallery">
     <div class="gallery-light">
         <div class="section-tag">inspiración costera</div>
-        <div class="section-title" style="font-size:1.8rem;">Vive el movimiento del mar</div>
+        <div class="section-title" style="font-size:1.8rem;">Experiencia inmersiva</div>
         <div class="mini-gallery">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="playa" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop" alt="atardecer" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop" alt="piscina" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400&h=300&fit=crop" alt="acantilado" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="playa">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop" alt="atardecer">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop" alt="piscina">
+            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400&h=300&fit=crop" alt="acantilado">
         </div>
     </div>
 </div>
@@ -447,9 +491,9 @@
             <div class="section-tag" style="text-align: left;">Asesoría real</div>
             <h3 style="font-size:1.7rem;">Comienza hoy tu inversión frente al mar</h3>
             <p style="margin: 1rem 0;">Te guiamos desde la elección hasta la escrituración.</p>
-            <div class="contact-detail">
-                <span><i class="fab fa-whatsapp"></i> +52 998 345 7890</span>
-                <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span>
+            <div>
+                <span><i class="fab fa-whatsapp"></i> +52 998 345 7890</span><br>
+                <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span><br>
                 <span><i class="fas fa-clock"></i> Lun a Vie 9am - 7pm</span>
             </div>
         </div>
@@ -465,16 +509,136 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes de lujo frente al mar · fondo en movimiento con video ligero</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual interactivo · Fondo en movimiento</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
-<!-- AOS solo para animaciones suaves -->
+<!-- MODAL RECORRIDO VIRTUAL FICTICIO (panorámica arrastrable) -->
+<div id="virtualModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-vr-cardboard"></i> Recorrido 360° · Lote exclusivo frente al mar</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="virtual-container">
+            <div id="panoramaView" class="panorama-frame"></div>
+            <div class="instruccion">
+                <span class="drag-hint"><i class="fas fa-mouse-pointer"></i> Arrastra para mover la vista 360°</span>
+                <span class="drag-hint"><i class="fas fa-mobile-alt"></i> Toca y desliza en móvil</span>
+            </div>
+            <button id="resetViewBtn" class="btn-virtual"><i class="fas fa-sync-alt"></i> Reiniciar vista</button>
+        </div>
+    </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 700, once: true, offset: 60 });
 
-    // Form feedback
+    // ----- RECORRIDO VIRTUAL FICTICIO (panorama interactivo) -----
+    const modal = document.getElementById('virtualModal');
+    const panorama = document.getElementById('panoramaView');
+    let currentX = 50;  // porcentaje de background-position X
+    let currentY = 50;  // porcentaje Y
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let startPanX = 0, startPanY = 0;
+
+    // Configurar imagen panorámica (imagen 360° ficticia pero con efecto envolvente)
+    // Usamos una imagen de alta resolución de una playa / lote que da sensación de amplitud
+    const panoramaImages = [
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop'
+    ];
+    let currentImgIndex = 0;
+    
+    function updatePanoramaBackground() {
+        if(panorama) {
+            panorama.style.backgroundImage = `url('${panoramaImages[currentImgIndex]}')`;
+            panorama.style.backgroundSize = 'auto 100%';
+            panorama.style.backgroundRepeat = 'no-repeat';
+            panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
+        }
+    }
+    
+    // Eventos de arrastre para simular movimiento 360°
+    function startDrag(e) {
+        isDragging = true;
+        const clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
+        const clientY = e.clientY ?? (e.touches ? e.touches[0].clientY : 0);
+        startX = clientX;
+        startY = clientY;
+        startPanX = currentX;
+        startPanY = currentY;
+        panorama.style.cursor = 'grabbing';
+        e.preventDefault();
+    }
+    
+    function onDrag(e) {
+        if (!isDragging) return;
+        const clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
+        const clientY = e.clientY ?? (e.touches ? e.touches[0].clientY : 0);
+        const deltaX = clientX - startX;
+        const deltaY = clientY - startY;
+        let newX = startPanX + (deltaX / 3);
+        let newY = startPanY + (deltaY / 5);
+        newX = Math.min(100, Math.max(0, newX));
+        newY = Math.min(100, Math.max(0, newY));
+        currentX = newX;
+        currentY = newY;
+        panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
+    }
+    
+    function endDrag() {
+        isDragging = false;
+        panorama.style.cursor = 'grab';
+    }
+    
+    function resetView() {
+        currentX = 50;
+        currentY = 50;
+        panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
+        // Cambiar imagen aleatoria para simular diferentes vistas del recorrido
+        currentImgIndex = (currentImgIndex + 1) % panoramaImages.length;
+        updatePanoramaBackground();
+    }
+    
+    if(panorama) {
+        panorama.style.cursor = 'grab';
+        panorama.addEventListener('mousedown', startDrag);
+        window.addEventListener('mousemove', onDrag);
+        window.addEventListener('mouseup', endDrag);
+        panorama.addEventListener('touchstart', startDrag, {passive: false});
+        window.addEventListener('touchmove', onDrag, {passive: false});
+        window.addEventListener('touchend', endDrag);
+        updatePanoramaBackground();
+    }
+    
+    // Abrir modal
+    function openModal() {
+        modal.style.display = 'flex';
+        resetView(); // reinicia posición y cambia imagen para dar frescura
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    
+    document.getElementById('openVirtualBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+    document.getElementById('heroVirtualBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+    document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
+    document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
+    window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+    
+    // Formulario contacto
     const form = document.getElementById('lightForm');
     const feedback = document.getElementById('formFeedback');
     if(form) {
@@ -494,7 +658,7 @@
             setTimeout(() => feedback.innerHTML = '', 4000);
         });
     }
-
+    
     // smooth scroll
     document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light, .btn-card').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
