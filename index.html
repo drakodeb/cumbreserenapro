@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cumbre Serena | Lotes frente al mar · Recorrido Virtual</title>
+    <title>Cumbre Serena | Lotes frente al mar · Recorrido Virtual por lote</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -29,21 +29,20 @@
             padding: 0 40px;
         }
 
-        /* Header glass - MENÚ GRANDE */
+        /* Header glass - menú como estaba originalmente */
         .header {
             position: sticky;
             top: 0;
             z-index: 100;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(44, 122, 94, 0.2);
-            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(44, 122, 94, 0.15);
         }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             flex-wrap: wrap;
         }
         .logo {
@@ -52,11 +51,11 @@
             gap: 10px;
         }
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #2c7a5e;
         }
         .logo-text {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #1f5e4a, #3b9b78);
             background-clip: text;
@@ -64,47 +63,42 @@
             color: transparent;
         }
         .logo-sub {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             color: #6c8e7e;
             letter-spacing: 1px;
         }
         .nav-links {
             display: flex;
-            gap: 2.2rem;
+            gap: 1.8rem;
             align-items: center;
             flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #1f4a3c;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #234e3f;
             transition: 0.2s;
             cursor: pointer;
-            padding: 0.4rem 0;
         }
         .nav-links a:hover {
             color: #2c7a5e;
         }
         .nav-cta {
             background: #2c7a5e;
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.3rem;
             border-radius: 40px;
             color: white !important;
-            font-weight: 700;
-        }
-        .nav-cta:hover {
-            background: #1c5e48;
-            transform: scale(1.02);
+            font-weight: 600;
         }
 
-        /* HERO CON FONDO MÁS PEQUEÑO */
+        /* Hero con fondo de video */
         .hero-moving {
             position: relative;
             background: #0a2f28;
             overflow: hidden;
-            min-height: 55vh;
+            min-height: 75vh;
             display: flex;
             align-items: center;
         }
@@ -124,18 +118,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(105deg, rgba(15, 40, 35, 0.7) 0%, rgba(10, 35, 28, 0.6) 100%);
+            background: linear-gradient(105deg, rgba(15, 40, 35, 0.65) 0%, rgba(10, 35, 28, 0.55) 100%);
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 2.5rem 0;
+            padding: 3rem 0;
         }
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
         }
         .hero-badge {
@@ -147,14 +141,14 @@
             font-size: 0.7rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         .hero-title {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.2;
             color: white;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             text-shadow: 0 2px 12px rgba(0,0,0,0.2);
         }
         .hero-title span {
@@ -162,10 +156,10 @@
             border-bottom: 2px solid #7fcbad;
         }
         .hero-desc {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #f0f7f3;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
+            margin-bottom: 1.8rem;
+            line-height: 1.5;
             max-width: 90%;
         }
         .btn-group {
@@ -176,7 +170,7 @@
         .btn-primary {
             background: white;
             color: #1f5e4a;
-            padding: 0.7rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             font-weight: 700;
             transition: 0.2s;
@@ -184,7 +178,6 @@
             display: inline-block;
             box-shadow: 0 6px 14px rgba(0,0,0,0.1);
             cursor: pointer;
-            font-size: 0.9rem;
         }
         .btn-primary:hover {
             background: #eef5f1;
@@ -194,19 +187,18 @@
             background: transparent;
             border: 1.5px solid white;
             color: white;
-            padding: 0.7rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             backdrop-filter: blur(5px);
             cursor: pointer;
-            font-size: 0.9rem;
         }
         .hero-image img {
             width: 100%;
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
-            height: 280px;
+            height: 350px;
             object-fit: cover;
         }
 
@@ -215,8 +207,8 @@
             justify-content: space-between;
             background: white;
             border-radius: 60px;
-            padding: 0.9rem 2rem;
-            margin-top: -1.5rem;
+            padding: 1rem 2rem;
+            margin-top: -2rem;
             position: relative;
             z-index: 10;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -224,12 +216,12 @@
             gap: 0.8rem;
         }
         .stat-item { text-align: center; flex: 1; }
-        .stat-number { font-size: 1.5rem; font-weight: 800; color: #1f5e4a; }
+        .stat-number { font-size: 1.6rem; font-weight: 800; color: #1f5e4a; }
         .stat-item div:last-child { font-size: 0.8rem; color: #5f8372; }
 
-        .section { padding: 3rem 0; }
+        .section { padding: 4rem 0; }
         .section-tag { text-align: center; letter-spacing: 2px; font-size: 0.7rem; font-weight: 600; color: #2c7a5e; }
-        .section-title { text-align: center; font-size: 2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
+        .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
 
         .lots-grid {
             display: grid;
@@ -249,18 +241,26 @@
         .card-img { height: 220px; overflow: hidden; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
         .card-body { padding: 1.4rem; }
-        .price-tag { font-size: 1.6rem; font-weight: 800; color: #246b53; }
+        .price-tag { font-size: 1.7rem; font-weight: 800; color: #246b53; }
         .btn-card {
             background: #f2f9f5;
             width: 100%;
             padding: 0.7rem;
             border-radius: 40px;
             font-weight: 600;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             border: none;
             cursor: pointer;
             color: #2c7a5e;
+            transition: 0.2s;
         }
+        .btn-card:hover { background: #e0f0e6; }
+        .btn-tour {
+            background: #2c7a5e;
+            color: white;
+            margin-top: 0.5rem;
+        }
+        .btn-tour:hover { background: #1c5e48; }
 
         .gallery-light {
             background: #fafefaf0;
@@ -282,8 +282,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-        footer { text-align: center; padding: 1.8rem; font-size: 0.75rem; color: #618c79; }
+        footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #618c79; }
 
+        /* MODAL RECORRIDO VIRTUAL */
         .modal {
             display: none;
             position: fixed;
@@ -336,13 +337,11 @@
 
         @media (max-width: 800px) {
             .hero-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 1.9rem; }
+            .hero-title { font-size: 2rem; }
             .container { padding: 0 20px; }
             .mini-gallery { grid-template-columns: repeat(2,1fr); }
             .contact-premium { grid-template-columns: 1fr; }
             .panorama-frame { height: 280px; }
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -360,7 +359,7 @@
             </div>
             <div class="nav-links">
                 <a href="#">Inicio</a>
-                <a id="menuLotesVirtual" style="cursor: pointer;"><i class="fas fa-vr-cardboard"></i> Lotes · Tour 360°</a>
+                <a href="#propiedades">Lotes</a>
                 <a href="#gallery">Galería</a>
                 <a href="#contact">Contacto</a>
                 <a href="#" class="nav-cta">Área privada</a>
@@ -369,7 +368,7 @@
     </div>
 </div>
 
-<!-- HERO -->
+<!-- Hero -->
 <div class="hero-moving">
     <video class="bg-video" autoplay loop muted playsinline preload="metadata">
         <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
@@ -379,10 +378,10 @@
         <div class="hero-grid">
             <div data-aos="fade-right">
                 <div class="hero-badge"><i class="fas fa-water"></i> oceanfront · experiencia inmersiva</div>
-                <h1 class="hero-title">Lotes frente al mar<br> <span>recorrido virtual</span> exclusivo</h1>
-                <p class="hero-desc">Explora cada ángulo de nuestros terrenos con nuestro recorrido 360° ficticio. Vive la vista antes de invertir.</p>
+                <h1 class="hero-title">Lotes frente al mar<br> <span>recorrido virtual</span> por cada propiedad</h1>
+                <p class="hero-desc">Explora cada lote con nuestro tour 360° exclusivo. Haz clic en "Recorrido virtual" en cualquier propiedad.</p>
                 <div class="btn-group">
-                    <a id="heroVirtualBtn" class="btn-primary"><i class="fas fa-vr-cardboard"></i> Tour virtual 360°</a>
+                    <a href="#propiedades" class="btn-primary"><i class="fas fa-compass"></i> Ver lotes</a>
                     <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Asesoría gratis</a>
                 </div>
             </div>
@@ -402,13 +401,13 @@
     </div>
 </div>
 
-<!-- SECCIÓN DE LOTES CON IMÁGENES REALISTAS DE TERRENOS COSTEROS -->
+<!-- SECCIÓN DE LOTES CON TOUR VIRTUAL INDIVIDUAL -->
 <div class="container section" id="propiedades">
     <div class="section-tag">selección cumbre</div>
     <div class="section-title">Lotes exclusivos a orilla del mar</div>
     <div class="lots-grid">
-        <!-- Lote 1: imagen de terreno con vista al mar -->
-        <div class="lot-card">
+        <!-- Lote 1 - Mar de Jade -->
+        <div class="lot-card" data-lote="mar-de-jade">
             <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="Terreno frente al mar con palmeras"></div>
             <div class="card-body">
                 <h3>Lote Mar de Jade</h3>
@@ -416,10 +415,11 @@
                 <div class="price-tag">$189,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
                 <button class="btn-card infoLoteBtn">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card btn-tour tourBtn" data-tour="jade"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
             </div>
         </div>
-        <!-- Lote 2: imagen de costa rocosa + lote -->
-        <div class="lot-card">
+        <!-- Lote 2 - Reserva Miramar -->
+        <div class="lot-card" data-lote="miramar">
             <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="Lote con vista al mar y acantilado"></div>
             <div class="card-body">
                 <h3>Reserva Miramar</h3>
@@ -427,10 +427,11 @@
                 <div class="price-tag">$245,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
                 <button class="btn-card infoLoteBtn">Ver masterplan <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card btn-tour tourBtn" data-tour="miramar"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
             </div>
         </div>
-        <!-- Lote 3: imagen de playa privada y terreno -->
-        <div class="lot-card">
+        <!-- Lote 3 - Villas del Pacífico -->
+        <div class="lot-card" data-lote="villas">
             <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="Lote con acceso directo a la playa"></div>
             <div class="card-body">
                 <h3>Villas del Pacífico</h3>
@@ -438,12 +439,13 @@
                 <div class="price-tag">$310,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
                 <button class="btn-card infoLoteBtn">Apartar lote <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card btn-tour tourBtn" data-tour="villas"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- GALERÍA DE INSPIRACIÓN COSTERA (todas imágenes de playas y terrenos cercanos al mar) -->
+<!-- Galería -->
 <div class="container" id="gallery">
     <div class="gallery-light">
         <div class="section-tag">inspiración costera</div>
@@ -457,7 +459,7 @@
     </div>
 </div>
 
-<!-- CONTACTO -->
+<!-- Contacto -->
 <div class="container section" id="contact">
     <div class="contact-premium">
         <div>
@@ -482,15 +484,15 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes a orilla del mar · Recorrido virtual 360°</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Cada lote tiene su propio recorrido virtual 360°</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
-<!-- MODAL RECORRIDO VIRTUAL -->
+<!-- MODAL RECORRIDO VIRTUAL (dinámico según lote) -->
 <div id="virtualModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3><i class="fas fa-vr-cardboard"></i> Recorrido 360° · Lote exclusivo frente al mar</h3>
+            <h3 id="modalTitle"><i class="fas fa-vr-cardboard"></i> Recorrido 360° · Lote</h3>
             <button class="close-modal" id="closeModalBtn">&times;</button>
         </div>
         <div class="virtual-container">
@@ -508,27 +510,50 @@
 <script>
     AOS.init({ duration: 700, once: true, offset: 60 });
 
-    // ----- RECORRIDO VIRTUAL INTERACTIVO -----
+    // ----- RECORRIDO VIRTUAL CON MÚLTIPLES ESCENAS POR LOTE -----
     const modal = document.getElementById('virtualModal');
+    const modalTitle = document.getElementById('modalTitle');
     const panorama = document.getElementById('panoramaView');
+    
+    // Configuración de tours para cada lote (diferentes imágenes panorámicas)
+    const toursConfig = {
+        jade: {
+            nombre: 'Lote Mar de Jade',
+            imagenes: [
+                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=1600&h=600&fit=crop'
+            ]
+        },
+        miramar: {
+            nombre: 'Reserva Miramar',
+            imagenes: [
+                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop'
+            ]
+        },
+        villas: {
+            nombre: 'Villas del Pacífico',
+            imagenes: [
+                'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop'
+            ]
+        }
+    };
+    
+    let currentTourImages = [];
+    let currentImgIndex = 0;
     let currentX = 50;
     let currentY = 50;
     let isDragging = false;
     let startX = 0, startY = 0;
     let startPanX = 0, startPanY = 0;
-
-    // Imágenes panorámicas de playas y terrenos costeros (todas 100% funcionales)
-    const panoramaImages = [
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=1600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop'
-    ];
-    let currentImgIndex = 0;
     
     function updatePanoramaBackground() {
-        if(panorama) {
-            panorama.style.backgroundImage = `url('${panoramaImages[currentImgIndex]}')`;
+        if(panorama && currentTourImages.length > 0) {
+            panorama.style.backgroundImage = `url('${currentTourImages[currentImgIndex]}')`;
             panorama.style.backgroundSize = 'auto 100%';
             panorama.style.backgroundRepeat = 'no-repeat';
             panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
@@ -570,10 +595,13 @@
     function resetView() {
         currentX = 50;
         currentY = 50;
-        currentImgIndex = (currentImgIndex + 1) % panoramaImages.length;
-        updatePanoramaBackground();
+        if(currentTourImages.length > 0) {
+            currentImgIndex = (currentImgIndex + 1) % currentTourImages.length;
+            updatePanoramaBackground();
+        }
     }
     
+    // Inicializar eventos del panorama
     if(panorama) {
         panorama.style.cursor = 'grab';
         panorama.addEventListener('mousedown', startDrag);
@@ -582,28 +610,36 @@
         panorama.addEventListener('touchstart', startDrag, {passive: false});
         window.addEventListener('touchmove', onDrag, {passive: false});
         window.addEventListener('touchend', endDrag);
-        updatePanoramaBackground();
     }
     
-    function openModal() {
-        modal.style.display = 'flex';
+    function openTour(loteId) {
+        const tour = toursConfig[loteId];
+        if(!tour) return;
+        
+        currentTourImages = [...tour.imagenes];
+        currentImgIndex = 0;
         currentX = 50;
         currentY = 50;
-        currentImgIndex = Math.floor(Math.random() * panoramaImages.length);
+        
+        modalTitle.innerHTML = `<i class="fas fa-vr-cardboard"></i> Recorrido 360° · ${tour.nombre}`;
         updatePanoramaBackground();
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
+    
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     }
     
-    // Evento principal: al hacer clic en "Lotes" del menú
-    const menuLotes = document.getElementById('menuLotesVirtual');
-    if(menuLotes) menuLotes.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
-    
-    const heroVirtualBtn = document.getElementById('heroVirtualBtn');
-    if(heroVirtualBtn) heroVirtualBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    // Asignar eventos a todos los botones de tour
+    document.querySelectorAll('.tourBtn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const tourId = btn.getAttribute('data-tour');
+            if(tourId) openTour(tourId);
+        });
+    });
     
     document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
     document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
@@ -637,8 +673,8 @@
         });
     });
     
-    // Smooth scroll
-    document.querySelectorAll('.nav-links a:not(#menuLotesVirtual), .btn-outline-light').forEach(anchor => {
+    // Smooth scroll para enlaces del menú
+    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if(href && href.startsWith('#') && href !== '#') {
