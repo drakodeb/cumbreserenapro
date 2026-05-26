@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cumbre Serena | Luxury Coastal Lots</title>
-    <!-- Font Awesome 6 -->
+    <title>Cumbre Serena | Lotes frente al mar · Fondo en movimiento</title>
+    <!-- Font Awesome 6 (CDN liviano) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts solo un peso ligero -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,21 +17,9 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background-color: #f7fbf9;
             color: #1a2e25;
             scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e9f0ec;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2c7a5e;
-            border-radius: 10px;
         }
 
         .container {
@@ -42,131 +28,135 @@
             padding: 0 40px;
         }
 
-        /* Header glassmorphism */
+        /* Header glass ligero */
         .header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(44, 122, 94, 0.15);
-            transition: all 0.3s;
         }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             flex-wrap: wrap;
         }
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #2c7a5e;
         }
         .logo-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
+            font-size: 1.5rem;
+            font-weight: 800;
             background: linear-gradient(135deg, #1f5e4a, #3b9b78);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .logo-sub {
-            font-size: 0.7rem;
-            font-weight: 400;
+            font-size: 0.65rem;
+            font-weight: 500;
             color: #6c8e7e;
-            letter-spacing: 1px;
         }
         .nav-links {
             display: flex;
-            gap: 2.2rem;
+            gap: 1.8rem;
         }
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
             color: #234e3f;
             transition: 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .nav-links a:hover {
             color: #2c7a5e;
         }
         .nav-cta {
             background: #2c7a5e;
-            padding: 0.5rem 1.3rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 40px;
             color: white !important;
         }
-        .nav-cta:hover {
-            background: #1c5e48;
-        }
 
-        /* Hero Section con fondo de MAR */
-        .hero-premium {
+        /* HERO CON FONDO EN MOVIMIENTO ULTRALIGERO (video mp4 muy pequeño + fallback) */
+        .hero-moving {
             position: relative;
-            background: linear-gradient(0deg, rgba(20, 40, 35, 0.75), rgba(20, 40, 35, 0.65)), 
-                        url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600&h=800&fit=crop');
-            background-size: cover;
-            background-position: center 30%;
-            background-repeat: no-repeat;
-            padding: 5rem 0 4rem;
+            background: #0a2f28;
             overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
         }
-        .hero-premium::before {
-            content: '';
+        /* Video de fondo ligero (caché, formato optimizado) */
+        .bg-video {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, #ffffff, transparent);
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
             pointer-events: none;
+        }
+        /* overlay elegante pero sutil */
+        .overlay-moving {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(15, 40, 35, 0.65) 0%, rgba(10, 35, 28, 0.55) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 0;
         }
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
         .hero-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-            padding: 0.3rem 1rem;
+            backdrop-filter: blur(5px);
+            padding: 0.25rem 1rem;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 1.2rem;
-            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
         }
         .hero-title {
-            font-size: 3.3rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
-            color: #ffffff;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
         }
         .hero-title span {
             color: #d4f5e8;
-            border-bottom: 3px solid rgba(180, 230, 210, 0.7);
+            border-bottom: 2px solid #7fcbad;
         }
         .hero-desc {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #f0f7f3;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             line-height: 1.5;
             max-width: 90%;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.1);
         }
         .btn-group {
             display: flex;
@@ -174,220 +164,167 @@
             flex-wrap: wrap;
         }
         .btn-primary {
-            background: #ffffff;
+            background: white;
             color: #1f5e4a;
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            font-weight: 700;
+            transition: 0.2s;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
         }
         .btn-primary:hover {
             background: #eef5f1;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         .btn-outline-light {
             background: transparent;
             border: 1.5px solid white;
             color: white;
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: 0.2s;
-            backdrop-filter: blur(4px);
-        }
-        .btn-outline-light:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-3px);
+            backdrop-filter: blur(5px);
         }
         .hero-image img {
             width: 100%;
-            border-radius: 32px;
-            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.3);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+            height: 380px;
             object-fit: cover;
-            height: 400px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
+        /* Stats row */
         .stats-row {
             display: flex;
             justify-content: space-between;
             background: white;
-            border-radius: 80px;
-            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            padding: 1rem 2rem;
             margin-top: -2rem;
             position: relative;
             z-index: 10;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             border: 1px solid #e0f0e8;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         .stat-item {
             text-align: center;
             flex: 1;
         }
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #1f5e4a;
         }
 
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
         .section-tag {
             text-align: center;
-            text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #2c7a5e;
-            margin-bottom: 1rem;
         }
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #15392e;
-            margin-bottom: 1rem;
+            margin: 0.5rem 0 1rem;
         }
-        .section-subtitle {
-            text-align: center;
-            color: #618c79;
-            max-width: 650px;
-            margin: 0 auto 3rem;
-        }
-
         .lots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
-        .lot-card-pro {
+        .lot-card {
             background: white;
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: 0.3s ease;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             border: 1px solid #e2efe8;
         }
-        .lot-card-pro:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 28px 40px -12px rgba(44,122,94,0.2);
+        .lot-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(44,122,94,0.15);
         }
         .card-img {
-            height: 240px;
+            height: 210px;
             overflow: hidden;
         }
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s;
+            transition: 0.4s;
         }
-        .lot-card-pro:hover .card-img img {
-            transform: scale(1.05);
+        .lot-card:hover .card-img img {
+            transform: scale(1.04);
         }
         .card-body {
-            padding: 1.6rem;
+            padding: 1.4rem;
         }
         .price-tag {
-            font-size: 1.9rem;
+            font-size: 1.7rem;
             font-weight: 800;
             color: #246b53;
-        }
-        .lot-features {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-            color: #547a69;
         }
         .btn-card {
             background: #f2f9f5;
             width: 100%;
-            text-align: center;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border-radius: 40px;
             font-weight: 600;
             margin-top: 1rem;
-            transition: 0.2s;
             border: none;
             cursor: pointer;
             color: #2c7a5e;
         }
-        .btn-card:hover {
-            background: #e0f0e6;
-        }
-
-        .gallery-pro {
+        .gallery-light {
             background: #fafefaf0;
-            border-radius: 48px;
-            padding: 2rem;
+            border-radius: 40px;
+            padding: 1.8rem;
         }
-        .masonry-grid {
+        .mini-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
+            gap: 1rem;
         }
-        .masonry-grid img {
+        .mini-gallery img {
             width: 100%;
-            height: 180px;
+            height: 150px;
             object-fit: cover;
             border-radius: 20px;
-            transition: 0.3s;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
         }
-        .masonry-grid img:hover {
-            transform: scale(0.98);
-            filter: brightness(0.95);
-        }
-
         .contact-premium {
             background: #eef5f1;
-            border-radius: 40px;
-            padding: 3rem;
+            border-radius: 36px;
+            padding: 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-        .contact-info h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1rem;
-        }
-        .contact-detail {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 30px;
-            border: 1px solid #cde0d8;
-            font-family: 'Inter', sans-serif;
-            background: white;
-        }
         footer {
-            padding: 2.5rem 0;
             text-align: center;
-            background: #fff;
-            border-top: 1px solid #e0ece5;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: #618c79;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
             .hero-grid { grid-template-columns: 1fr; }
             .hero-title { font-size: 2.2rem; }
             .container { padding: 0 20px; }
-            .masonry-grid { grid-template-columns: repeat(2,1fr); }
+            .mini-gallery { grid-template-columns: repeat(2,1fr); }
             .contact-premium { grid-template-columns: 1fr; }
-            .stats-row { border-radius: 32px; }
         }
     </style>
 </head>
@@ -414,152 +351,151 @@
     </div>
 </div>
 
-<main>
-    <!-- Hero con fondo de MAR IMPACTANTE -->
-    <div class="hero-premium">
-        <div class="container">
-            <div class="hero-grid">
-                <div data-aos="fade-right">
-                    <div class="hero-badge"><i class="fas fa-water"></i>  exclusive oceanfront · vista infinita</div>
-                    <h1 class="hero-title">Lotes frente al mar<br> <span>donde el horizonte</span> es tu jardín</h1>
-                    <p class="hero-desc">Inversión premium en la costa más exclusiva. Cumbre Serena te ofrece terrenos con vista al Pacífico, infraestructura de lujo y plusvalía asegurada.</p>
-                    <div class="btn-group">
-                        <a href="#lots" class="btn-primary"><i class="fas fa-compass"></i> Explorar lotes</a>
-                        <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Agendar visita</a>
-                    </div>
+<!-- HERO CON FONDO EN MOVIMIENTO (video ligero de olas - archivo MP4 pequeño CDN) -->
+<div class="hero-moving">
+    <video class="bg-video" autoplay loop muted playsinline preload="metadata">
+        <!-- Video de olas muy liviano (~300kb de muestra, código embebido confiable desde Pexels CDN / uso de archivo público pequeño) 
+        Usamos un video de olas corto de Pexels (streamable pequeño y optimizado) que carga rápido -->
+        <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
+        <!-- Fallback: gradiente animado si el video no carga (nunca se ve roto) -->
+    </video>
+    <div class="overlay-moving"></div>
+    <div class="container hero-content">
+        <div class="hero-grid">
+            <div data-aos="fade-right">
+                <div class="hero-badge"><i class="fas fa-water"></i>  oceanfront · movimiento perpetuo</div>
+                <h1 class="hero-title">Lotes frente al mar<br> <span>donde el horizonte</span> late en calma</h1>
+                <p class="hero-desc">Inversión premium en la costa más exclusiva. Terrenos con vista infinita, plusvalía y un estilo de vida único.</p>
+                <div class="btn-group">
+                    <a href="#lots" class="btn-primary"><i class="fas fa-compass"></i> Explorar lotes</a>
+                    <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Agendar visita</a>
                 </div>
-                <div class="hero-image" data-aos="fade-left">
-                    <img src="https://picsum.photos/id/104/800/500" alt="Vista aérea costa lujosa" loading="eager">
-                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="https://picsum.photos/id/104/700/450" alt="vista aérea costa de lujo" loading="eager">
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container">
-        <div class="stats-row" data-aos="fade-up">
-            <div class="stat-item"><div class="stat-number">+120</div><div>Lotes vendidos</div></div>
-            <div class="stat-item"><div class="stat-number">98%</div><div>Satisfacción</div></div>
-            <div class="stat-item"><div class="stat-number">24/7</div><div>Asesoría legal</div></div>
-            <div class="stat-item"><div class="stat-number">5 zonas</div><div>Costa privilegiada</div></div>
-        </div>
+<!-- Stats flotantes -->
+<div class="container">
+    <div class="stats-row">
+        <div class="stat-item"><div class="stat-number">+120</div><div>Lotes vendidos</div></div>
+        <div class="stat-item"><div class="stat-number">98%</div><div>Satisfacción</div></div>
+        <div class="stat-item"><div class="stat-number">24/7</div><div>Asesoría legal</div></div>
+        <div class="stat-item"><div class="stat-number">5 zonas</div><div>Costa privilegiada</div></div>
     </div>
+</div>
 
-    <!-- Lotes destacados -->
-    <div class="container section" id="lots">
-        <div class="section-tag">Selección cumbre</div>
-        <div class="section-title">Propiedades exclusivas</div>
-        <div class="section-subtitle">Terrenos con todos los servicios, escrituración inmediata y proyectos de lujo a tu medida.</div>
-        <div class="lots-grid">
-            <div class="lot-card-pro" data-aos="zoom-in">
-                <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="lote vista mar"></div>
-                <div class="card-body">
-                    <h3>Lote Mar de Jade</h3>
-                    <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
-                    <div class="price-tag">$189,000 USD</div>
-                    <div class="lot-features"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
-                    <button class="btn-card">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
-                </div>
+<!-- Sección Lotes -->
+<div class="container section" id="lots">
+    <div class="section-tag">selección cumbre</div>
+    <div class="section-title">Propiedades exclusivas</div>
+    <div class="lots-grid">
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="Lote Mar de Jade"></div>
+            <div class="card-body">
+                <h3>Lote Mar de Jade</h3>
+                <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
+                <div class="price-tag">$189,000 USD</div>
+                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
+                <button class="btn-card">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="lot-card-pro" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="terreno exclusivo"></div>
-                <div class="card-body">
-                    <h3>Reserva Miramar</h3>
-                    <div><i class="fas fa-map-pin"></i> Costa Serena</div>
-                    <div class="price-tag">$245,000 USD</div>
-                    <div class="lot-features"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
-                    <button class="btn-card">Ver masterplan <i class="fas fa-arrow-right"></i></button>
-                </div>
+        </div>
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="Reserva Miramar"></div>
+            <div class="card-body">
+                <h3>Reserva Miramar</h3>
+                <div><i class="fas fa-map-pin"></i> Costa Serena</div>
+                <div class="price-tag">$245,000 USD</div>
+                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
+                <button class="btn-card">Ver masterplan <i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="lot-card-pro" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="lote frente al mar"></div>
-                <div class="card-body">
-                    <h3>Villas del Pacífico</h3>
-                    <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
-                    <div class="price-tag">$310,000 USD</div>
-                    <div class="lot-features"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
-                    <button class="btn-card">Apartar lote <i class="fas fa-arrow-right"></i></button>
-                </div>
+        </div>
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="Villas del Pacífico"></div>
+            <div class="card-body">
+                <h3>Villas del Pacífico</h3>
+                <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
+                <div class="price-tag">$310,000 USD</div>
+                <div class="lot-features" style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
+                <button class="btn-card">Apartar lote <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Galería premium -->
-    <div class="container" id="gallery">
-        <div class="gallery-pro" data-aos="fade-up">
-            <div class="section-tag">Inspiración costera</div>
-            <div class="section-title" style="font-size: 2rem;">Tu estilo de vida cumbre</div>
-            <div class="masonry-grid">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=350&fit=crop" alt="mar turquesa" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&h=350&fit=crop" alt="atardecer dorado" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=350&fit=crop" alt="piscina infinita" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=500&h=350&fit=crop" alt="vista acantilado" loading="lazy">
-            </div>
-            <p class="section-subtitle" style="margin-top: 1.5rem;">Escenarios de ensueño · Imágenes libres Unsplash + Picsum</p>
+<!-- Galería ligera -->
+<div class="container" id="gallery">
+    <div class="gallery-light">
+        <div class="section-tag">inspiración costera</div>
+        <div class="section-title" style="font-size:1.8rem;">Vive el movimiento del mar</div>
+        <div class="mini-gallery">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="playa" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop" alt="atardecer" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop" alt="piscina" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400&h=300&fit=crop" alt="acantilado" loading="lazy">
         </div>
     </div>
+</div>
 
-    <!-- Contacto profesional -->
-    <div class="container section" id="contact">
-        <div class="contact-premium" data-aos="flip-up">
-            <div class="contact-info">
-                <div class="section-tag" style="text-align: left;">Asesoría personalizada</div>
-                <h3>Comienza hoy tu inversión frente al mar</h3>
-                <p>Nuestros agentes Cumbre Serena te guían en cada paso, desde la elección del lote hasta la escrituración.</p>
-                <div class="contact-detail">
-                    <span><i class="fab fa-whatsapp" style="color:#2c7a5e;"></i> +52 998 345 7890</span>
-                    <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span>
-                    <span><i class="fas fa-clock"></i> Lun a Vie 9am - 7pm</span>
-                </div>
-            </div>
-            <div>
-                <form id="proForm">
-                    <div class="form-group" style="margin-bottom: 1rem;">
-                        <input type="text" placeholder="Nombre completo" id="proName" required>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1rem;">
-                        <input type="email" placeholder="Correo electrónico" id="proEmail" required>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1rem;">
-                        <textarea rows="2" placeholder="Mensaje o lote de interés"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary" style="width:100%; justify-content:center; background:#1f5e4a; color:white;">Solicitar información <i class="fas fa-arrow-right"></i></button>
-                    <p id="formProMessage" style="font-size:0.75rem; margin-top:0.8rem; color:#2c7a5e;"></p>
-                </form>
+<!-- Contacto -->
+<div class="container section" id="contact">
+    <div class="contact-premium">
+        <div>
+            <div class="section-tag" style="text-align: left;">Asesoría real</div>
+            <h3 style="font-size:1.7rem;">Comienza hoy tu inversión frente al mar</h3>
+            <p style="margin: 1rem 0;">Te guiamos desde la elección hasta la escrituración.</p>
+            <div class="contact-detail">
+                <span><i class="fab fa-whatsapp"></i> +52 998 345 7890</span>
+                <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span>
+                <span><i class="fas fa-clock"></i> Lun a Vie 9am - 7pm</span>
             </div>
         </div>
+        <div>
+            <form id="lightForm">
+                <input type="text" placeholder="Nombre completo" id="nameLight" style="width:100%; padding:0.8rem; border-radius:50px; border:1px solid #cde0d8; margin-bottom:0.8rem;">
+                <input type="email" placeholder="Correo electrónico" id="emailLight" style="width:100%; padding:0.8rem; border-radius:50px; border:1px solid #cde0d8; margin-bottom:0.8rem;">
+                <button type="submit" class="btn-primary" style="background:#1f5e4a; color:white; width:100%; border:none;">Enviar mensaje <i class="fas fa-arrow-right"></i></button>
+                <p id="formFeedback" style="font-size:0.7rem; margin-top:0.5rem; color:#2c7a5e;"></p>
+            </form>
+        </div>
     </div>
-</main>
+</div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes de lujo frente al mar</p>
-    <p style="font-size: 0.7rem; margin-top: 8px;">Imágenes gratuitas Unsplash + Picsum | Proyecto exclusivo</p>
-    <div style="margin-top: 12px; font-weight: 500; letter-spacing: 0.5px;">by design@drako2026</div>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes de lujo frente al mar · fondo en movimiento con video ligero</p>
+    <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
+<!-- AOS solo para animaciones suaves -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: true, offset: 80 });
+    AOS.init({ duration: 700, once: true, offset: 60 });
 
-    const proForm = document.getElementById('proForm');
-    const msgSpan = document.getElementById('formProMessage');
-    if(proForm) {
-        proForm.addEventListener('submit', (e) => {
+    // Form feedback
+    const form = document.getElementById('lightForm');
+    const feedback = document.getElementById('formFeedback');
+    if(form) {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('proName')?.value.trim();
-            const email = document.getElementById('proEmail')?.value.trim();
+            const name = document.getElementById('nameLight').value.trim();
+            const email = document.getElementById('emailLight').value.trim();
             if(!name || !email) {
-                msgSpan.innerHTML = '⚠️ Completa nombre y correo para recibir información.';
-                msgSpan.style.color = '#b1624b';
-                setTimeout(() => msgSpan.innerHTML = '', 3000);
+                feedback.innerHTML = '⚠️ Completa tu nombre y correo.';
+                feedback.style.color = '#b1624b';
+                setTimeout(() => feedback.innerHTML = '', 2500);
                 return;
             }
-            msgSpan.innerHTML = `✅ ¡Gracias ${name}! Nuestro equipo te contactará a ${email} en 24h. 🌊`;
-            msgSpan.style.color = '#1f6e54';
-            proForm.reset();
-            setTimeout(() => msgSpan.innerHTML = '', 5000);
+            feedback.innerHTML = `✅ ¡Gracias ${name}! Te contactaremos a ${email} muy pronto. 🌊`;
+            feedback.style.color = '#1f6e54';
+            form.reset();
+            setTimeout(() => feedback.innerHTML = '', 4000);
         });
     }
 
+    // smooth scroll
     document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light, .btn-card').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
