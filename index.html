@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cumbre Serena | Lotes frente al mar · Recorrido Virtual por lote</title>
+    <title>Cumbre Serena | Lotes frente al mar · Nuevas Imágenes</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -29,7 +29,7 @@
             padding: 0 40px;
         }
 
-        /* Header glass - menú como estaba originalmente */
+        /* Header glass */
         .header {
             position: sticky;
             top: 0;
@@ -93,33 +93,27 @@
             font-weight: 600;
         }
 
-        /* Hero con fondo de video */
-        .hero-moving {
+        /* Hero con nueva imagen de playa paradisíaca */
+        .hero-paradise {
             position: relative;
-            background: #0a2f28;
-            overflow: hidden;
-            min-height: 75vh;
+            background: linear-gradient(0deg, rgba(15, 40, 35, 0.55), rgba(15, 40, 35, 0.45)), 
+                        url('https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=1600&h=700&fit=crop');
+            background-size: cover;
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            min-height: 78vh;
             display: flex;
             align-items: center;
         }
-        .bg-video {
+        .hero-paradise::after {
+            content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
+            height: 80px;
+            background: linear-gradient(to top, #f7fbf9, transparent);
             pointer-events: none;
-        }
-        .overlay-moving {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(105deg, rgba(15, 40, 35, 0.65) 0%, rgba(10, 35, 28, 0.55) 100%);
-            z-index: 1;
         }
         .hero-content {
             position: relative;
@@ -134,9 +128,9 @@
         }
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(5px);
-            padding: 0.25rem 1rem;
+            padding: 0.3rem 1rem;
             border-radius: 50px;
             font-size: 0.7rem;
             font-weight: 600;
@@ -149,18 +143,19 @@
             line-height: 1.2;
             color: white;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.25);
         }
         .hero-title span {
-            color: #d4f5e8;
-            border-bottom: 2px solid #7fcbad;
+            color: #ffe0b5;
+            border-bottom: 2px solid #ffd966;
         }
         .hero-desc {
             font-size: 1rem;
-            color: #f0f7f3;
+            color: #f8faf7;
             margin-bottom: 1.8rem;
             line-height: 1.5;
             max-width: 90%;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.15);
         }
         .btn-group {
             display: flex;
@@ -176,7 +171,7 @@
             transition: 0.2s;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
             cursor: pointer;
         }
         .btn-primary:hover {
@@ -191,7 +186,7 @@
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(4px);
             cursor: pointer;
         }
         .hero-image img {
@@ -200,6 +195,7 @@
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
             height: 350px;
             object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .stats-row {
@@ -284,7 +280,7 @@
         }
         footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #618c79; }
 
-        /* MODAL RECORRIDO VIRTUAL */
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -368,25 +364,21 @@
     </div>
 </div>
 
-<!-- Hero -->
-<div class="hero-moving">
-    <video class="bg-video" autoplay loop muted playsinline preload="metadata">
-        <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
-    </video>
-    <div class="overlay-moving"></div>
+<!-- HERO CON NUEVA IMAGEN DE PLAYA PARADISÍACA -->
+<div class="hero-paradise">
     <div class="container hero-content">
         <div class="hero-grid">
             <div data-aos="fade-right">
-                <div class="hero-badge"><i class="fas fa-water"></i> oceanfront · experiencia inmersiva</div>
-                <h1 class="hero-title">Lotes frente al mar<br> <span>recorrido virtual</span> por cada propiedad</h1>
-                <p class="hero-desc">Explora cada lote con nuestro tour 360° exclusivo. Haz clic en "Recorrido virtual" en cualquier propiedad.</p>
+                <div class="hero-badge"><i class="fas fa-umbrella-beach"></i>  playa paradisíaca · caribe mexicano</div>
+                <h1 class="hero-title">Lotes frente al mar<br> <span>tu paraíso</span> te está esperando</h1>
+                <p class="hero-desc">Terrenos exclusivos a orilla del mar con vista infinita. Cada lote incluye un recorrido virtual 360° para que explores desde casa.</p>
                 <div class="btn-group">
                     <a href="#propiedades" class="btn-primary"><i class="fas fa-compass"></i> Ver lotes</a>
                     <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Asesoría gratis</a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
-                <img src="https://picsum.photos/id/104/700/450" alt="vista aérea costa de lujo">
+                <img src="https://picsum.photos/id/106/700/450" alt="vista aérea costa tropical">
             </div>
         </div>
     </div>
@@ -401,14 +393,14 @@
     </div>
 </div>
 
-<!-- SECCIÓN DE LOTES CON TOUR VIRTUAL INDIVIDUAL -->
+<!-- SECCIÓN DE LOTES CON NUEVAS IMÁGENES -->
 <div class="container section" id="propiedades">
     <div class="section-tag">selección cumbre</div>
     <div class="section-title">Lotes exclusivos a orilla del mar</div>
     <div class="lots-grid">
-        <!-- Lote 1 - Mar de Jade -->
-        <div class="lot-card" data-lote="mar-de-jade">
-            <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="Terreno frente al mar con palmeras"></div>
+        <!-- Lote 1 - Mar de Jade con nueva imagen -->
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/29/600/400" alt="Terreno frente al mar tropical"></div>
             <div class="card-body">
                 <h3>Lote Mar de Jade</h3>
                 <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
@@ -418,9 +410,9 @@
                 <button class="btn-card btn-tour tourBtn" data-tour="jade"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
             </div>
         </div>
-        <!-- Lote 2 - Reserva Miramar -->
-        <div class="lot-card" data-lote="miramar">
-            <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="Lote con vista al mar y acantilado"></div>
+        <!-- Lote 2 - Reserva Miramar con nueva imagen -->
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/30/600/400" alt="Lote con vista al mar y palmeras"></div>
             <div class="card-body">
                 <h3>Reserva Miramar</h3>
                 <div><i class="fas fa-map-pin"></i> Costa Serena</div>
@@ -430,9 +422,9 @@
                 <button class="btn-card btn-tour tourBtn" data-tour="miramar"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
             </div>
         </div>
-        <!-- Lote 3 - Villas del Pacífico -->
-        <div class="lot-card" data-lote="villas">
-            <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="Lote con acceso directo a la playa"></div>
+        <!-- Lote 3 - Villas del Pacífico con nueva imagen -->
+        <div class="lot-card">
+            <div class="card-img"><img src="https://picsum.photos/id/102/600/400" alt="Lote con acceso directo a la playa"></div>
             <div class="card-body">
                 <h3>Villas del Pacífico</h3>
                 <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
@@ -445,16 +437,16 @@
     </div>
 </div>
 
-<!-- Galería -->
+<!-- GALERÍA CON NUEVAS IMÁGENES -->
 <div class="container" id="gallery">
     <div class="gallery-light">
         <div class="section-tag">inspiración costera</div>
         <div class="section-title" style="font-size:1.8rem;">Estilo de vida frente al mar</div>
         <div class="mini-gallery">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=350&fit=crop" alt="Playa paradisíaca">
-            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&h=350&fit=crop" alt="Amanecer en la costa">
-            <img src="https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=500&h=350&fit=crop" alt="Terreno con vista al mar">
-            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=500&h=350&fit=crop" alt="Acantilado frente al mar">
+            <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=500&h=350&fit=crop" alt="Playa con rocas">
+            <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=500&h=350&fit=crop" alt="Atardecer en la playa">
+            <img src="https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=500&h=350&fit=crop" alt="Costa tropical">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500&h=350&fit=crop" alt="Playa paradisíaca">
         </div>
     </div>
 </div>
@@ -484,11 +476,11 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Cada lote tiene su propio recorrido virtual 360°</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Playa paradisíaca · Cada lote con recorrido virtual 360°</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
-<!-- MODAL RECORRIDO VIRTUAL (dinámico según lote) -->
+<!-- MODAL RECORRIDO VIRTUAL -->
 <div id="virtualModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -510,35 +502,34 @@
 <script>
     AOS.init({ duration: 700, once: true, offset: 60 });
 
-    // ----- RECORRIDO VIRTUAL CON MÚLTIPLES ESCENAS POR LOTE -----
+    // ----- RECORRIDO VIRTUAL CON NUEVAS IMÁGENES PANORÁMICAS -----
     const modal = document.getElementById('virtualModal');
     const modalTitle = document.getElementById('modalTitle');
     const panorama = document.getElementById('panoramaView');
     
-    // Configuración de tours para cada lote (diferentes imágenes panorámicas)
     const toursConfig = {
         jade: {
             nombre: 'Lote Mar de Jade',
             imagenes: [
-                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=1600&h=600&fit=crop'
+                'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=1600&h=600&fit=crop'
             ]
         },
         miramar: {
             nombre: 'Reserva Miramar',
             imagenes: [
-                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop'
+                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1600&h=600&fit=crop'
             ]
         },
         villas: {
             nombre: 'Villas del Pacífico',
             imagenes: [
-                'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop'
+                'https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
+                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&h=600&fit=crop'
             ]
         }
     };
@@ -601,7 +592,6 @@
         }
     }
     
-    // Inicializar eventos del panorama
     if(panorama) {
         panorama.style.cursor = 'grab';
         panorama.addEventListener('mousedown', startDrag);
@@ -615,12 +605,10 @@
     function openTour(loteId) {
         const tour = toursConfig[loteId];
         if(!tour) return;
-        
         currentTourImages = [...tour.imagenes];
         currentImgIndex = 0;
         currentX = 50;
         currentY = 50;
-        
         modalTitle.innerHTML = `<i class="fas fa-vr-cardboard"></i> Recorrido 360° · ${tour.nombre}`;
         updatePanoramaBackground();
         modal.style.display = 'flex';
@@ -632,7 +620,6 @@
         document.body.style.overflow = '';
     }
     
-    // Asignar eventos a todos los botones de tour
     document.querySelectorAll('.tourBtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -645,7 +632,7 @@
     document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
     window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
     
-    // Formulario de contacto
+    // Formulario
     const form = document.getElementById('lightForm');
     const feedback = document.getElementById('formFeedback');
     if(form) {
@@ -666,14 +653,12 @@
         });
     }
     
-    // Botones de información de lotes
     document.querySelectorAll('.infoLoteBtn').forEach(btn => {
         btn.addEventListener('click', () => {
             alert('📞 Para más información, contáctanos vía WhatsApp o formulario. ¡Te asesoramos sin costo!');
         });
     });
     
-    // Smooth scroll para enlaces del menú
     document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
