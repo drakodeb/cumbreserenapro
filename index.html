@@ -29,33 +29,34 @@
             padding: 0 40px;
         }
 
-        /* Header glass */
+        /* Header glass - MENÚ MÁS GRANDE */
         .header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(44, 122, 94, 0.15);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(44, 122, 94, 0.2);
+            padding: 0.5rem 0;
         }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             flex-wrap: wrap;
         }
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .logo-icon {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #2c7a5e;
         }
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: 800;
             background: linear-gradient(135deg, #1f5e4a, #3b9b78);
             background-clip: text;
@@ -63,40 +64,47 @@
             color: transparent;
         }
         .logo-sub {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-weight: 500;
             color: #6c8e7e;
+            letter-spacing: 1px;
         }
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 2.2rem;
             align-items: center;
             flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
-            font-weight: 500;
-            color: #234e3f;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1f4a3c;
             transition: 0.2s;
-            font-size: 0.9rem;
             cursor: pointer;
+            padding: 0.4rem 0;
         }
         .nav-links a:hover {
             color: #2c7a5e;
         }
         .nav-cta {
             background: #2c7a5e;
-            padding: 0.4rem 1.2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 40px;
             color: white !important;
+            font-weight: 700;
+        }
+        .nav-cta:hover {
+            background: #1c5e48;
+            transform: scale(1.02);
         }
 
-        /* Hero con video de fondo ligero */
+        /* HERO CON FONDO MÁS PEQUEÑO (altura reducida) */
         .hero-moving {
             position: relative;
             background: #0a2f28;
             overflow: hidden;
-            min-height: 85vh;
+            min-height: 55vh;  /* ANTES 85vh, AHORA MÁS PEQUEÑO */
             display: flex;
             align-items: center;
         }
@@ -116,18 +124,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(105deg, rgba(15, 40, 35, 0.65) 0%, rgba(10, 35, 28, 0.55) 100%);
+            background: linear-gradient(105deg, rgba(15, 40, 35, 0.7) 0%, rgba(10, 35, 28, 0.6) 100%);
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 4rem 0;
+            padding: 2.5rem 0;  /* padding reducido */
         }
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
             align-items: center;
         }
         .hero-badge {
@@ -139,14 +147,14 @@
             font-size: 0.7rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .hero-title {
-            font-size: 3rem;
+            font-size: 2.4rem;  /* texto ligeramente más pequeño para proporción */
             font-weight: 800;
             line-height: 1.2;
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-shadow: 0 2px 12px rgba(0,0,0,0.2);
         }
         .hero-title span {
@@ -154,10 +162,10 @@
             border-bottom: 2px solid #7fcbad;
         }
         .hero-desc {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #f0f7f3;
-            margin-bottom: 1.8rem;
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
             max-width: 90%;
         }
         .btn-group {
@@ -168,7 +176,7 @@
         .btn-primary {
             background: white;
             color: #1f5e4a;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 50px;
             font-weight: 700;
             transition: 0.2s;
@@ -176,6 +184,7 @@
             display: inline-block;
             box-shadow: 0 6px 14px rgba(0,0,0,0.1);
             cursor: pointer;
+            font-size: 0.9rem;
         }
         .btn-primary:hover {
             background: #eef5f1;
@@ -185,28 +194,30 @@
             background: transparent;
             border: 1.5px solid white;
             color: white;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             backdrop-filter: blur(5px);
             cursor: pointer;
+            font-size: 0.9rem;
         }
         .hero-image img {
             width: 100%;
-            border-radius: 28px;
+            border-radius: 24px;
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
-            height: 380px;
+            height: 280px;
             object-fit: cover;
         }
 
+        /* Stats row */
         .stats-row {
             display: flex;
             justify-content: space-between;
             background: white;
             border-radius: 60px;
-            padding: 1rem 2rem;
-            margin-top: -2rem;
+            padding: 0.9rem 2rem;
+            margin-top: -1.5rem;
             position: relative;
             z-index: 10;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -214,11 +225,12 @@
             gap: 0.8rem;
         }
         .stat-item { text-align: center; flex: 1; }
-        .stat-number { font-size: 1.6rem; font-weight: 800; color: #1f5e4a; }
+        .stat-number { font-size: 1.5rem; font-weight: 800; color: #1f5e4a; }
+        .stat-item div:last-child { font-size: 0.8rem; color: #5f8372; }
 
-        .section { padding: 4rem 0; }
+        .section { padding: 3rem 0; }
         .section-tag { text-align: center; letter-spacing: 2px; font-size: 0.7rem; font-weight: 600; color: #2c7a5e; }
-        .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
 
         .lots-grid {
             display: grid;
@@ -235,10 +247,10 @@
             border: 1px solid #e2efe8;
         }
         .lot-card:hover { transform: translateY(-8px); }
-        .card-img { height: 210px; overflow: hidden; }
+        .card-img { height: 200px; overflow: hidden; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
         .card-body { padding: 1.4rem; }
-        .price-tag { font-size: 1.7rem; font-weight: 800; color: #246b53; }
+        .price-tag { font-size: 1.6rem; font-weight: 800; color: #246b53; }
         .btn-card {
             background: #f2f9f5;
             width: 100%;
@@ -261,7 +273,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
-        .mini-gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 20px; }
+        .mini-gallery img { width: 100%; height: 140px; object-fit: cover; border-radius: 20px; }
 
         .contact-premium {
             background: #eef5f1;
@@ -271,7 +283,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-        footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #618c79; }
+        footer { text-align: center; padding: 1.8rem; font-size: 0.75rem; color: #618c79; }
 
         /* MODAL RECORRIDO VIRTUAL */
         .modal {
@@ -305,66 +317,34 @@
             border-bottom: 1px solid rgba(255,255,255,0.2);
             margin-bottom: 1rem;
         }
-        .modal-header h3 {
-            color: white;
-            font-weight: 600;
-        }
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: white;
-        }
-        .virtual-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .modal-header h3 { color: white; font-weight: 600; }
+        .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: white; }
+        .virtual-container { display: flex; flex-direction: column; align-items: center; }
         .panorama-frame {
             width: 100%;
-            height: 480px;
+            height: 460px;
             background: #0f2c24;
             border-radius: 24px;
             overflow: hidden;
-            position: relative;
             cursor: grab;
             background-size: auto 100%;
             background-repeat: no-repeat;
             box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
         }
-        .panorama-frame:active {
-            cursor: grabbing;
-        }
-        .instruccion {
-            color: #c7e9dd;
-            font-size: 0.8rem;
-            margin-top: 0.8rem;
-            display: flex;
-            gap: 1rem;
-        }
-        .drag-hint {
-            background: rgba(0,0,0,0.5);
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-        }
-        .btn-virtual {
-            background: #2c7a5e;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            margin-top: 1rem;
-            cursor: pointer;
-        }
+        .panorama-frame:active { cursor: grabbing; }
+        .instruccion { color: #c7e9dd; font-size: 0.8rem; margin-top: 0.8rem; display: flex; gap: 1rem; }
+        .drag-hint { background: rgba(0,0,0,0.5); padding: 0.2rem 0.8rem; border-radius: 30px; }
+        .btn-virtual { background: #2c7a5e; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 40px; margin-top: 1rem; cursor: pointer; }
 
         @media (max-width: 800px) {
             .hero-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.2rem; }
+            .hero-title { font-size: 1.9rem; }
             .container { padding: 0 20px; }
             .mini-gallery { grid-template-columns: repeat(2,1fr); }
             .contact-premium { grid-template-columns: 1fr; }
-            .panorama-frame { height: 300px; }
+            .panorama-frame { height: 280px; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -382,7 +362,7 @@
             </div>
             <div class="nav-links">
                 <a href="#">Inicio</a>
-                <!-- El menú LOTES ahora abre el recorrido virtual -->
+                <!-- El menú LOTES abre el recorrido virtual -->
                 <a id="menuLotesVirtual" style="cursor: pointer;"><i class="fas fa-vr-cardboard"></i> Lotes · Tour 360°</a>
                 <a href="#gallery">Galería</a>
                 <a href="#contact">Contacto</a>
@@ -392,7 +372,7 @@
     </div>
 </div>
 
-<!-- Hero con fondo en movimiento -->
+<!-- HERO CON FONDO MÁS PEQUEÑO Y MENOS ALTURA -->
 <div class="hero-moving">
     <video class="bg-video" autoplay loop muted playsinline preload="metadata">
         <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
@@ -425,7 +405,7 @@
     </div>
 </div>
 
-<!-- Sección de propiedades destacadas (ahora es solo informativa, el acceso principal a lotes es el tour) -->
+<!-- Sección de propiedades destacadas -->
 <div class="container section" id="propiedades">
     <div class="section-tag">selección cumbre</div>
     <div class="section-title">Propiedades exclusivas</div>
@@ -437,7 +417,7 @@
                 <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
                 <div class="price-tag">$189,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
-                <button class="btn-card" id="infoLote1">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card infoLoteBtn">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="lot-card">
@@ -447,7 +427,7 @@
                 <div><i class="fas fa-map-pin"></i> Costa Serena</div>
                 <div class="price-tag">$245,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
-                <button class="btn-card" id="infoLote2">Ver masterplan <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card infoLoteBtn">Ver masterplan <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="lot-card">
@@ -457,7 +437,7 @@
                 <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
                 <div class="price-tag">$310,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
-                <button class="btn-card" id="infoLote3">Apartar lote <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card infoLoteBtn">Apartar lote <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
@@ -502,11 +482,11 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual interactivo · Haz clic en "Lotes" para el tour 360°</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual 360° al hacer clic en "Lotes"</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
-<!-- MODAL RECORRIDO VIRTUAL FICTICIO (panorámica arrastrable) -->
+<!-- MODAL RECORRIDO VIRTUAL -->
 <div id="virtualModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -528,7 +508,7 @@
 <script>
     AOS.init({ duration: 700, once: true, offset: 60 });
 
-    // ----- RECORRIDO VIRTUAL FICTICIO (panorama interactivo) -----
+    // ----- RECORRIDO VIRTUAL INTERACTIVO -----
     const modal = document.getElementById('virtualModal');
     const panorama = document.getElementById('panoramaView');
     let currentX = 50;
@@ -537,7 +517,6 @@
     let startX = 0, startY = 0;
     let startPanX = 0, startPanY = 0;
 
-    // Múltiples imágenes para simular diferentes escenas del recorrido
     const panoramaImages = [
         'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
         'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
@@ -590,7 +569,6 @@
     function resetView() {
         currentX = 50;
         currentY = 50;
-        // Cambiar a la siguiente imagen para simular diferentes vistas del recorrido
         currentImgIndex = (currentImgIndex + 1) % panoramaImages.length;
         updatePanoramaBackground();
     }
@@ -606,10 +584,8 @@
         updatePanoramaBackground();
     }
     
-    // Abrir modal
     function openModal() {
         modal.style.display = 'flex';
-        // Reiniciar posición y cambiar imagen al abrir para dar sensación fresca
         currentX = 50;
         currentY = 50;
         currentImgIndex = Math.floor(Math.random() * panoramaImages.length);
@@ -623,23 +599,11 @@
     
     // Evento principal: al hacer clic en "Lotes" del menú
     const menuLotes = document.getElementById('menuLotesVirtual');
-    if(menuLotes) {
-        menuLotes.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        });
-    }
+    if(menuLotes) menuLotes.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
     
-    // Botón del hero también abre el tour
     const heroVirtualBtn = document.getElementById('heroVirtualBtn');
-    if(heroVirtualBtn) {
-        heroVirtualBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        });
-    }
+    if(heroVirtualBtn) heroVirtualBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
     
-    // Botones de cierre
     document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
     document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
     window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
@@ -665,16 +629,15 @@
         });
     }
     
-    // Botones de información de lotes (solo feedback demostrativo)
-    const btns = document.querySelectorAll('.btn-card');
-    btns.forEach(btn => {
+    // Botones de información de lotes
+    document.querySelectorAll('.infoLoteBtn').forEach(btn => {
         btn.addEventListener('click', () => {
             alert('📞 Para más información, contáctanos vía WhatsApp o formulario. ¡Te asesoramos sin costo!');
         });
     });
     
-    // Smooth scroll solo para enlaces que no sean el de lotes
-    document.querySelectorAll('.nav-links a, .btn-outline-light').forEach(anchor => {
+    // Smooth scroll solo para enlaces internos (excepto el de lotes)
+    document.querySelectorAll('.nav-links a:not(#menuLotesVirtual), .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if(href && href.startsWith('#') && href !== '#') {
