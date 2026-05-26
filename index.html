@@ -79,6 +79,7 @@
             color: #234e3f;
             transition: 0.2s;
             font-size: 0.9rem;
+            cursor: pointer;
         }
         .nav-links a:hover {
             color: #2c7a5e;
@@ -88,14 +89,6 @@
             padding: 0.4rem 1.2rem;
             border-radius: 40px;
             color: white !important;
-        }
-        .virtual-link {
-            background: rgba(44, 122, 94, 0.12);
-            padding: 0.4rem 1rem;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #1f5e4a !important;
-            cursor: pointer;
         }
 
         /* Hero con video de fondo ligero */
@@ -182,6 +175,7 @@
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
         .btn-primary:hover {
             background: #eef5f1;
@@ -196,6 +190,7 @@
             font-weight: 600;
             text-decoration: none;
             backdrop-filter: blur(5px);
+            cursor: pointer;
         }
         .hero-image img {
             width: 100%;
@@ -286,7 +281,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -334,10 +329,8 @@
             overflow: hidden;
             position: relative;
             cursor: grab;
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop');
-            background-size: cover;
-            background-position: center;
-            transition: background-position 0.1s ease-out;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
             box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
         }
         .panorama-frame:active {
@@ -389,8 +382,8 @@
             </div>
             <div class="nav-links">
                 <a href="#">Inicio</a>
-                <a href="#lots">Lotes</a>
-                <a href="#" id="openVirtualBtn" class="virtual-link"><i class="fas fa-vr-cardboard"></i> Recorrido 360°</a>
+                <!-- El menú LOTES ahora abre el recorrido virtual -->
+                <a id="menuLotesVirtual" style="cursor: pointer;"><i class="fas fa-vr-cardboard"></i> Lotes · Tour 360°</a>
                 <a href="#gallery">Galería</a>
                 <a href="#contact">Contacto</a>
                 <a href="#" class="nav-cta">Área privada</a>
@@ -412,8 +405,8 @@
                 <h1 class="hero-title">Lotes frente al mar<br> <span>recorrido virtual</span> exclusivo</h1>
                 <p class="hero-desc">Explora cada ángulo de nuestros terrenos con nuestro recorrido 360° ficticio. Vive la vista antes de invertir.</p>
                 <div class="btn-group">
-                    <a href="#lots" class="btn-primary"><i class="fas fa-compass"></i> Ver lotes</a>
-                    <a href="#" id="heroVirtualBtn" class="btn-outline-light"><i class="fas fa-vr-cardboard"></i> Tour virtual</a>
+                    <a id="heroVirtualBtn" class="btn-primary"><i class="fas fa-vr-cardboard"></i> Tour virtual 360°</a>
+                    <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Asesoría gratis</a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
@@ -432,8 +425,8 @@
     </div>
 </div>
 
-<!-- Lotes destacados -->
-<div class="container section" id="lots">
+<!-- Sección de propiedades destacadas (ahora es solo informativa, el acceso principal a lotes es el tour) -->
+<div class="container section" id="propiedades">
     <div class="section-tag">selección cumbre</div>
     <div class="section-title">Propiedades exclusivas</div>
     <div class="lots-grid">
@@ -444,7 +437,7 @@
                 <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
                 <div class="price-tag">$189,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
-                <button class="btn-card">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card" id="infoLote1">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="lot-card">
@@ -454,7 +447,7 @@
                 <div><i class="fas fa-map-pin"></i> Costa Serena</div>
                 <div class="price-tag">$245,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
-                <button class="btn-card">Ver masterplan <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card" id="infoLote2">Ver masterplan <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="lot-card">
@@ -464,7 +457,7 @@
                 <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
                 <div class="price-tag">$310,000 USD</div>
                 <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
-                <button class="btn-card">Apartar lote <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-card" id="infoLote3">Apartar lote <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
@@ -509,7 +502,7 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual interactivo · Fondo en movimiento</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual interactivo · Haz clic en "Lotes" para el tour 360°</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
@@ -526,7 +519,7 @@
                 <span class="drag-hint"><i class="fas fa-mouse-pointer"></i> Arrastra para mover la vista 360°</span>
                 <span class="drag-hint"><i class="fas fa-mobile-alt"></i> Toca y desliza en móvil</span>
             </div>
-            <button id="resetViewBtn" class="btn-virtual"><i class="fas fa-sync-alt"></i> Reiniciar vista</button>
+            <button id="resetViewBtn" class="btn-virtual"><i class="fas fa-sync-alt"></i> Cambiar vista / Reiniciar</button>
         </div>
     </div>
 </div>
@@ -538,18 +531,18 @@
     // ----- RECORRIDO VIRTUAL FICTICIO (panorama interactivo) -----
     const modal = document.getElementById('virtualModal');
     const panorama = document.getElementById('panoramaView');
-    let currentX = 50;  // porcentaje de background-position X
-    let currentY = 50;  // porcentaje Y
+    let currentX = 50;
+    let currentY = 50;
     let isDragging = false;
     let startX = 0, startY = 0;
     let startPanX = 0, startPanY = 0;
 
-    // Configurar imagen panorámica (imagen 360° ficticia pero con efecto envolvente)
-    // Usamos una imagen de alta resolución de una playa / lote que da sensación de amplitud
+    // Múltiples imágenes para simular diferentes escenas del recorrido
     const panoramaImages = [
         'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
         'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop'
     ];
     let currentImgIndex = 0;
     
@@ -562,7 +555,6 @@
         }
     }
     
-    // Eventos de arrastre para simular movimiento 360°
     function startDrag(e) {
         isDragging = true;
         const clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
@@ -598,8 +590,7 @@
     function resetView() {
         currentX = 50;
         currentY = 50;
-        panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
-        // Cambiar imagen aleatoria para simular diferentes vistas del recorrido
+        // Cambiar a la siguiente imagen para simular diferentes vistas del recorrido
         currentImgIndex = (currentImgIndex + 1) % panoramaImages.length;
         updatePanoramaBackground();
     }
@@ -618,7 +609,11 @@
     // Abrir modal
     function openModal() {
         modal.style.display = 'flex';
-        resetView(); // reinicia posición y cambia imagen para dar frescura
+        // Reiniciar posición y cambiar imagen al abrir para dar sensación fresca
+        currentX = 50;
+        currentY = 50;
+        currentImgIndex = Math.floor(Math.random() * panoramaImages.length);
+        updatePanoramaBackground();
         document.body.style.overflow = 'hidden';
     }
     function closeModal() {
@@ -626,19 +621,30 @@
         document.body.style.overflow = '';
     }
     
-    document.getElementById('openVirtualBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
-    document.getElementById('heroVirtualBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
+    // Evento principal: al hacer clic en "Lotes" del menú
+    const menuLotes = document.getElementById('menuLotesVirtual');
+    if(menuLotes) {
+        menuLotes.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Botón del hero también abre el tour
+    const heroVirtualBtn = document.getElementById('heroVirtualBtn');
+    if(heroVirtualBtn) {
+        heroVirtualBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Botones de cierre
     document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
     document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
     window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
     
-    // Formulario contacto
+    // Formulario de contacto
     const form = document.getElementById('lightForm');
     const feedback = document.getElementById('formFeedback');
     if(form) {
@@ -659,8 +665,16 @@
         });
     }
     
-    // smooth scroll
-    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light, .btn-card').forEach(anchor => {
+    // Botones de información de lotes (solo feedback demostrativo)
+    const btns = document.querySelectorAll('.btn-card');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('📞 Para más información, contáctanos vía WhatsApp o formulario. ¡Te asesoramos sin costo!');
+        });
+    });
+    
+    // Smooth scroll solo para enlaces que no sean el de lotes
+    document.querySelectorAll('.nav-links a, .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if(href && href.startsWith('#') && href !== '#') {
