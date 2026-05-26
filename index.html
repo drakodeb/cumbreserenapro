@@ -29,7 +29,7 @@
             padding: 0 40px;
         }
 
-        /* Header glass - MENÚ MÁS GRANDE */
+        /* Header glass - MENÚ GRANDE */
         .header {
             position: sticky;
             top: 0;
@@ -99,12 +99,12 @@
             transform: scale(1.02);
         }
 
-        /* HERO CON FONDO MÁS PEQUEÑO (altura reducida) */
+        /* HERO CON FONDO MÁS PEQUEÑO */
         .hero-moving {
             position: relative;
             background: #0a2f28;
             overflow: hidden;
-            min-height: 55vh;  /* ANTES 85vh, AHORA MÁS PEQUEÑO */
+            min-height: 55vh;
             display: flex;
             align-items: center;
         }
@@ -130,7 +130,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 2.5rem 0;  /* padding reducido */
+            padding: 2.5rem 0;
         }
         .hero-grid {
             display: grid;
@@ -150,7 +150,7 @@
             margin-bottom: 0.8rem;
         }
         .hero-title {
-            font-size: 2.4rem;  /* texto ligeramente más pequeño para proporción */
+            font-size: 2.4rem;
             font-weight: 800;
             line-height: 1.2;
             color: white;
@@ -210,7 +210,6 @@
             object-fit: cover;
         }
 
-        /* Stats row */
         .stats-row {
             display: flex;
             justify-content: space-between;
@@ -234,7 +233,7 @@
 
         .lots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -247,7 +246,7 @@
             border: 1px solid #e2efe8;
         }
         .lot-card:hover { transform: translateY(-8px); }
-        .card-img { height: 200px; overflow: hidden; }
+        .card-img { height: 220px; overflow: hidden; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
         .card-body { padding: 1.4rem; }
         .price-tag { font-size: 1.6rem; font-weight: 800; color: #246b53; }
@@ -273,7 +272,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
-        .mini-gallery img { width: 100%; height: 140px; object-fit: cover; border-radius: 20px; }
+        .mini-gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 20px; }
 
         .contact-premium {
             background: #eef5f1;
@@ -285,7 +284,6 @@
         }
         footer { text-align: center; padding: 1.8rem; font-size: 0.75rem; color: #618c79; }
 
-        /* MODAL RECORRIDO VIRTUAL */
         .modal {
             display: none;
             position: fixed;
@@ -362,7 +360,6 @@
             </div>
             <div class="nav-links">
                 <a href="#">Inicio</a>
-                <!-- El menú LOTES abre el recorrido virtual -->
                 <a id="menuLotesVirtual" style="cursor: pointer;"><i class="fas fa-vr-cardboard"></i> Lotes · Tour 360°</a>
                 <a href="#gallery">Galería</a>
                 <a href="#contact">Contacto</a>
@@ -372,7 +369,7 @@
     </div>
 </div>
 
-<!-- HERO CON FONDO MÁS PEQUEÑO Y MENOS ALTURA -->
+<!-- HERO -->
 <div class="hero-moving">
     <video class="bg-video" autoplay loop muted playsinline preload="metadata">
         <source src="https://cdn.pixabay.com/video/2022/07/05/124119-726515934_large.mp4" type="video/mp4">
@@ -405,13 +402,14 @@
     </div>
 </div>
 
-<!-- Sección de propiedades destacadas -->
+<!-- SECCIÓN DE LOTES CON IMÁGENES REALISTAS DE TERRENOS COSTEROS -->
 <div class="container section" id="propiedades">
     <div class="section-tag">selección cumbre</div>
-    <div class="section-title">Propiedades exclusivas</div>
+    <div class="section-title">Lotes exclusivos a orilla del mar</div>
     <div class="lots-grid">
+        <!-- Lote 1: imagen de terreno con vista al mar -->
         <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="Lote Mar de Jade"></div>
+            <div class="card-img"><img src="https://picsum.photos/id/15/600/400" alt="Terreno frente al mar con palmeras"></div>
             <div class="card-body">
                 <h3>Lote Mar de Jade</h3>
                 <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
@@ -420,8 +418,9 @@
                 <button class="btn-card infoLoteBtn">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
+        <!-- Lote 2: imagen de costa rocosa + lote -->
         <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="Reserva Miramar"></div>
+            <div class="card-img"><img src="https://picsum.photos/id/96/600/400" alt="Lote con vista al mar y acantilado"></div>
             <div class="card-body">
                 <h3>Reserva Miramar</h3>
                 <div><i class="fas fa-map-pin"></i> Costa Serena</div>
@@ -430,8 +429,9 @@
                 <button class="btn-card infoLoteBtn">Ver masterplan <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
+        <!-- Lote 3: imagen de playa privada y terreno -->
         <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="Villas del Pacífico"></div>
+            <div class="card-img"><img src="https://picsum.photos/id/42/600/400" alt="Lote con acceso directo a la playa"></div>
             <div class="card-body">
                 <h3>Villas del Pacífico</h3>
                 <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
@@ -443,27 +443,27 @@
     </div>
 </div>
 
-<!-- Galería -->
+<!-- GALERÍA DE INSPIRACIÓN COSTERA (todas imágenes de playas y terrenos cercanos al mar) -->
 <div class="container" id="gallery">
     <div class="gallery-light">
         <div class="section-tag">inspiración costera</div>
-        <div class="section-title" style="font-size:1.8rem;">Experiencia inmersiva</div>
+        <div class="section-title" style="font-size:1.8rem;">Estilo de vida frente al mar</div>
         <div class="mini-gallery">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="playa">
-            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=300&fit=crop" alt="atardecer">
-            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop" alt="piscina">
-            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400&h=300&fit=crop" alt="acantilado">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=350&fit=crop" alt="Playa paradisíaca">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&h=350&fit=crop" alt="Amanecer en la costa">
+            <img src="https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=500&h=350&fit=crop" alt="Terreno con vista al mar">
+            <img src="https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=500&h=350&fit=crop" alt="Acantilado frente al mar">
         </div>
     </div>
 </div>
 
-<!-- Contacto -->
+<!-- CONTACTO -->
 <div class="container section" id="contact">
     <div class="contact-premium">
         <div>
             <div class="section-tag" style="text-align: left;">Asesoría real</div>
             <h3 style="font-size:1.7rem;">Comienza hoy tu inversión frente al mar</h3>
-            <p style="margin: 1rem 0;">Te guiamos desde la elección hasta la escrituración.</p>
+            <p style="margin: 1rem 0;">Te guiamos desde la elección del lote hasta la escrituración.</p>
             <div>
                 <span><i class="fab fa-whatsapp"></i> +52 998 345 7890</span><br>
                 <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span><br>
@@ -482,7 +482,7 @@
 </div>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Recorrido virtual 360° al hacer clic en "Lotes"</p>
+    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Lotes a orilla del mar · Recorrido virtual 360°</p>
     <div style="margin-top: 6px;">by design@drako2026</div>
 </footer>
 
@@ -517,10 +517,11 @@
     let startX = 0, startY = 0;
     let startPanX = 0, startPanY = 0;
 
+    // Imágenes panorámicas de playas y terrenos costeros (todas 100% funcionales)
     const panoramaImages = [
         'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=600&fit=crop',
         'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1506953829328-26acec5d25f0?w=1600&h=600&fit=crop',
         'https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=1600&h=600&fit=crop'
     ];
     let currentImgIndex = 0;
@@ -636,7 +637,7 @@
         });
     });
     
-    // Smooth scroll solo para enlaces internos (excepto el de lotes)
+    // Smooth scroll
     document.querySelectorAll('.nav-links a:not(#menuLotesVirtual), .btn-outline-light').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
