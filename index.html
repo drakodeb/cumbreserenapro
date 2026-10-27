@@ -1,674 +1,430 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cumbre Serena | Lotes frente al mar · Nuevas Imágenes</title>
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Servicios profesionales de jardinería en Querétaro. Mantenimiento, poda y limpieza de jardines.">
+<title>Rey Jardinería | Querétaro</title>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7fbf9;
-            color: #1a2e25;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* Header glass */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(44, 122, 94, 0.15);
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-icon {
-            font-size: 1.8rem;
-            color: #2c7a5e;
-        }
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1f5e4a, #3b9b78);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .logo-sub {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: #6c8e7e;
-            letter-spacing: 1px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.8rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: #234e3f;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .nav-links a:hover {
-            color: #2c7a5e;
-        }
-        .nav-cta {
-            background: #2c7a5e;
-            padding: 0.5rem 1.3rem;
-            border-radius: 40px;
-            color: white !important;
-            font-weight: 600;
-        }
-
-        /* Hero con nueva imagen de playa paradisíaca */
-        .hero-paradise {
-            position: relative;
-            background: linear-gradient(0deg, rgba(15, 40, 35, 0.55), rgba(15, 40, 35, 0.45)), 
-                        url('https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=1600&h=700&fit=crop');
-            background-size: cover;
-            background-position: center 35%;
-            background-repeat: no-repeat;
-            min-height: 78vh;
-            display: flex;
-            align-items: center;
-        }
-        .hero-paradise::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: linear-gradient(to top, #f7fbf9, transparent);
-            pointer-events: none;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 3rem 0;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(5px);
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.25);
-        }
-        .hero-title span {
-            color: #ffe0b5;
-            border-bottom: 2px solid #ffd966;
-        }
-        .hero-desc {
-            font-size: 1rem;
-            color: #f8faf7;
-            margin-bottom: 1.8rem;
-            line-height: 1.5;
-            max-width: 90%;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.15);
-        }
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: white;
-            color: #1f5e4a;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: 0.2s;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background: #eef5f1;
-            transform: translateY(-2px);
-        }
-        .btn-outline-light {
-            background: transparent;
-            border: 1.5px solid white;
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            backdrop-filter: blur(4px);
-            cursor: pointer;
-        }
-        .hero-image img {
-            width: 100%;
-            border-radius: 28px;
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
-            height: 350px;
-            object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .stats-row {
-            display: flex;
-            justify-content: space-between;
-            background: white;
-            border-radius: 60px;
-            padding: 1rem 2rem;
-            margin-top: -2rem;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        .stat-item { text-align: center; flex: 1; }
-        .stat-number { font-size: 1.6rem; font-weight: 800; color: #1f5e4a; }
-        .stat-item div:last-child { font-size: 0.8rem; color: #5f8372; }
-
-        .section { padding: 4rem 0; }
-        .section-tag { text-align: center; letter-spacing: 2px; font-size: 0.7rem; font-weight: 600; color: #2c7a5e; }
-        .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #15392e; margin: 0.5rem 0 1rem; }
-
-        .lots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .lot-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-            border: 1px solid #e2efe8;
-        }
-        .lot-card:hover { transform: translateY(-8px); }
-        .card-img { height: 220px; overflow: hidden; }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
-        .card-body { padding: 1.4rem; }
-        .price-tag { font-size: 1.7rem; font-weight: 800; color: #246b53; }
-        .btn-card {
-            background: #f2f9f5;
-            width: 100%;
-            padding: 0.7rem;
-            border-radius: 40px;
-            font-weight: 600;
-            margin-top: 0.8rem;
-            border: none;
-            cursor: pointer;
-            color: #2c7a5e;
-            transition: 0.2s;
-        }
-        .btn-card:hover { background: #e0f0e6; }
-        .btn-tour {
-            background: #2c7a5e;
-            color: white;
-            margin-top: 0.5rem;
-        }
-        .btn-tour:hover { background: #1c5e48; }
-
-        .gallery-light {
-            background: #fafefaf0;
-            border-radius: 40px;
-            padding: 1.8rem;
-        }
-        .mini-gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-        .mini-gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 20px; }
-
-        .contact-premium {
-            background: #eef5f1;
-            border-radius: 36px;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #618c79; }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.92);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(4px);
-        }
-        .modal-content {
-            background: #1e2f2a;
-            border-radius: 32px;
-            max-width: 95%;
-            width: 1100px;
-            padding: 1rem;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 1rem;
-        }
-        .modal-header h3 { color: white; font-weight: 600; }
-        .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: white; }
-        .virtual-container { display: flex; flex-direction: column; align-items: center; }
-        .panorama-frame {
-            width: 100%;
-            height: 460px;
-            background: #0f2c24;
-            border-radius: 24px;
-            overflow: hidden;
-            cursor: grab;
-            background-size: auto 100%;
-            background-repeat: no-repeat;
-            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
-        }
-        .panorama-frame:active { cursor: grabbing; }
-        .instruccion { color: #c7e9dd; font-size: 0.8rem; margin-top: 0.8rem; display: flex; gap: 1rem; }
-        .drag-hint { background: rgba(0,0,0,0.5); padding: 0.2rem 0.8rem; border-radius: 30px; }
-        .btn-virtual { background: #2c7a5e; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 40px; margin-top: 1rem; cursor: pointer; }
-
-        @media (max-width: 800px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2rem; }
-            .container { padding: 0 20px; }
-            .mini-gallery { grid-template-columns: repeat(2,1fr); }
-            .contact-premium { grid-template-columns: 1fr; }
-            .panorama-frame { height: 280px; }
-        }
-    </style>
+<style>
+:root {
+  --verde: #173f2b;
+  --verde2: #24563a;
+  --lima: #a5d66b;
+  --fondo: #f6f5ef;
+  --texto: #1c2b22;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+h1,h2,h3 { font-family: 'Manrope', sans-serif; line-height: 1.2; }
+.container { width: min(1100px, 90%); margin: auto; }
+a { text-decoration: none; }
+header {
+  background: var(--fondo);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #e0e6dc;
+}
+nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo { font-size: 1.35rem; font-weight: 800; color: var(--verde); }
+.logo span { color: #679746; }
+.links { display: flex; align-items: center; gap: 24px; }
+.links a { color: var(--verde); font-weight: 600; }
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 30px;
+  background: var(--lima);
+  color: var(--verde);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(.95); }
+.hero {
+  background: var(--verde);
+  color: white;
+  padding: 75px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+.eyebrow {
+  color: var(--lima);
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+h1 { font-size: clamp(2.7rem, 6vw, 4.8rem); margin: 18px 0; }
+h1 span { color: var(--lima); }
+.hero p { color: #dce8dd; font-size: 1.08rem; }
+.hero img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 180px 180px 20px 20px;
+}
+.hero .btn { margin-top: 15px; }
+section { padding: 80px 0; }
+.section-title { max-width: 650px; margin-bottom: 35px; }
+.section-title h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+.section-title p { color: #657168; }
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  padding: 28px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid #e4e8df;
+  transition: .2s;
+}
+.card:hover { transform: translateY(-5px); }
+.card .icon { font-size: 2rem; }
+.card h3 { color: var(--verde); }
+.card p { color: #657168; font-size: .95rem; }
+.about { background: #e9eee4; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+.about img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.about p { color: #526055; }
+.about ul { padding-left: 20px; }
+.about li { margin: 12px 0; }
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.step {
+  border-top: 2px solid var(--lima);
+  padding-top: 20px;
+}
+.step strong { color: var(--verde); font-size: 1.2rem; }
+.cta {
+  background: var(--verde);
+  color: white;
+  text-align: center;
+}
+.cta h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.cta p { color: #dce8dd; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+.contact-info p { color: #657168; }
+form {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #e4e8df;
+}
+label { display: block; font-weight: 700; margin: 14px 0 6px; }
+input,select,textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d8e0d5;
+  border-radius: 9px;
+  font: inherit;
+}
+textarea { min-height: 100px; resize: vertical; }
+form button { margin-top: 18px; width: 100%; }
+footer {
+  background: #102f20;
+  color: white;
+  padding: 28px 0;
+  text-align: center;
+}
+footer p { color: #c7d5c8; margin: 5px 0; }
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  background: #25d366;
+  color: white;
+  padding: 15px 19px;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 5px 20px #0003;
+}
+@media(max-width: 760px) {
+  .hero-grid,.about-grid,.contact-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0; }
+  .hero img { height: 320px; }
+  .services,.process { grid-template-columns: 1fr; }
+  .links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+  .links a { font-size: .8rem; }
+  .links .btn { padding: 9px 12px; }
+  nav { padding: 12px 0; }
+  section { padding: 60px 0; }
+}
+@media(max-width: 420px) {
+  nav { align-items: flex-start; flex-direction: column; }
+  .links { justify-content: flex-start; }
+}
+</style>
 </head>
+
 <body>
 
-<div class="header">
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <i class="fas fa-mountain logo-icon"></i>
-                <div>
-                    <div class="logo-text">Cumbre Serena</div>
-                    <div class="logo-sub">COASTAL REAL ESTATE</div>
-                </div>
-            </div>
-            <div class="nav-links">
-                <a href="#">Inicio</a>
-                <a href="#propiedades">Lotes</a>
-                <a href="#gallery">Galería</a>
-                <a href="#contact">Contacto</a>
-                <a href="#" class="nav-cta">Área privada</a>
-            </div>
-        </div>
+<header>
+  <nav class="container">
+    <a href="#inicio" class="logo">🌿 Rey <span>Jardinería</span></a>
+    <div class="links">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn">Cotizar</a>
     </div>
-</div>
+  </nav>
+</header>
 
-<!-- HERO CON NUEVA IMAGEN DE PLAYA PARADISÍACA -->
-<div class="hero-paradise">
-    <div class="container hero-content">
-        <div class="hero-grid">
-            <div data-aos="fade-right">
-                <div class="hero-badge"><i class="fas fa-umbrella-beach"></i>  playa paradisíaca · caribe mexicano</div>
-                <h1 class="hero-title">Lotes frente al mar<br> <span>tu paraíso</span> te está esperando</h1>
-                <p class="hero-desc">Terrenos exclusivos a orilla del mar con vista infinita. Cada lote incluye un recorrido virtual 360° para que explores desde casa.</p>
-                <div class="btn-group">
-                    <a href="#propiedades" class="btn-primary"><i class="fas fa-compass"></i> Ver lotes</a>
-                    <a href="#contact" class="btn-outline-light"><i class="fas fa-calendar-check"></i> Asesoría gratis</a>
-                </div>
-            </div>
-            <div class="hero-image" data-aos="fade-left">
-                <img src="https://picsum.photos/id/106/700/450" alt="vista aérea costa tropical">
-            </div>
-        </div>
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Jardinería en Querétaro</span>
+      <h1>Tu jardín merece <span>verse increíble.</span></h1>
+      <p>
+        Cuidamos tus espacios verdes con servicios de mantenimiento,
+        poda y limpieza para hogares, negocios y jardines.
+      </p>
+      <a href="#contacto" class="btn">Solicitar cotización ↗</a>
     </div>
-</div>
+    <img
+      src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=85"
+      alt="Jardín verde con plantas y flores">
+  </div>
+</section>
 
-<div class="container">
-    <div class="stats-row">
-        <div class="stat-item"><div class="stat-number">+120</div><div>Lotes vendidos</div></div>
-        <div class="stat-item"><div class="stat-number">98%</div><div>Satisfacción</div></div>
-        <div class="stat-item"><div class="stat-number">24/7</div><div>Asesoría legal</div></div>
-        <div class="stat-item"><div class="stat-number">5 zonas</div><div>Costa privilegiada</div></div>
+<section id="servicios">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow" style="color:#679746">Nuestros servicios</span>
+      <h2>Todo para mantener tu jardín en forma.</h2>
+      <p>Soluciones para que tus espacios exteriores luzcan limpios, verdes y agradables.</p>
     </div>
-</div>
 
-<!-- SECCIÓN DE LOTES CON NUEVAS IMÁGENES -->
-<div class="container section" id="propiedades">
-    <div class="section-tag">selección cumbre</div>
-    <div class="section-title">Lotes exclusivos a orilla del mar</div>
-    <div class="lots-grid">
-        <!-- Lote 1 - Mar de Jade con nueva imagen -->
-        <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/29/600/400" alt="Terreno frente al mar tropical"></div>
-            <div class="card-body">
-                <h3>Lote Mar de Jade</h3>
-                <div><i class="fas fa-map-pin"></i> Punta Esmeralda</div>
-                <div class="price-tag">$189,000 USD</div>
-                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 620 m²</span> <span><i class="fas fa-umbrella-beach"></i> 50m playa</span></div>
-                <button class="btn-card infoLoteBtn">Solicitar ficha <i class="fas fa-arrow-right"></i></button>
-                <button class="btn-card btn-tour tourBtn" data-tour="jade"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
-            </div>
-        </div>
-        <!-- Lote 2 - Reserva Miramar con nueva imagen -->
-        <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/30/600/400" alt="Lote con vista al mar y palmeras"></div>
-            <div class="card-body">
-                <h3>Reserva Miramar</h3>
-                <div><i class="fas fa-map-pin"></i> Costa Serena</div>
-                <div class="price-tag">$245,000 USD</div>
-                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 890 m²</span> <span><i class="fas fa-mountain"></i> Vista 360°</span></div>
-                <button class="btn-card infoLoteBtn">Ver masterplan <i class="fas fa-arrow-right"></i></button>
-                <button class="btn-card btn-tour tourBtn" data-tour="miramar"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
-            </div>
-        </div>
-        <!-- Lote 3 - Villas del Pacífico con nueva imagen -->
-        <div class="lot-card">
-            <div class="card-img"><img src="https://picsum.photos/id/102/600/400" alt="Lote con acceso directo a la playa"></div>
-            <div class="card-body">
-                <h3>Villas del Pacífico</h3>
-                <div><i class="fas fa-map-pin"></i> Zona Dorada</div>
-                <div class="price-tag">$310,000 USD</div>
-                <div style="display: flex; gap:1rem; font-size:0.8rem; margin:0.5rem 0;"><span><i class="fas fa-arrows-alt"></i> 1,050 m²</span> <span><i class="fas fa-swimmer"></i> Acceso privado</span></div>
-                <button class="btn-card infoLoteBtn">Apartar lote <i class="fas fa-arrow-right"></i></button>
-                <button class="btn-card btn-tour tourBtn" data-tour="villas"><i class="fas fa-vr-cardboard"></i> Recorrido virtual 360°</button>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="services">
+      <article class="card">
+        <div class="icon">🌱</div>
+        <h3>Mantenimiento de jardines</h3>
+        <p>Cuidado periódico, limpieza general y mantenimiento de áreas verdes.</p>
+      </article>
 
-<!-- GALERÍA CON NUEVAS IMÁGENES -->
-<div class="container" id="gallery">
-    <div class="gallery-light">
-        <div class="section-tag">inspiración costera</div>
-        <div class="section-title" style="font-size:1.8rem;">Estilo de vida frente al mar</div>
-        <div class="mini-gallery">
-            <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=500&h=350&fit=crop" alt="Playa con rocas">
-            <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=500&h=350&fit=crop" alt="Atardecer en la playa">
-            <img src="https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=500&h=350&fit=crop" alt="Costa tropical">
-            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500&h=350&fit=crop" alt="Playa paradisíaca">
-        </div>
-    </div>
-</div>
+      <article class="card">
+        <div class="icon">✂️</div>
+        <h3>Poda y perfilado</h3>
+        <p>Recorte de arbustos, setos y plantas para mantener una apariencia ordenada.</p>
+      </article>
 
-<!-- Contacto -->
-<div class="container section" id="contact">
-    <div class="contact-premium">
-        <div>
-            <div class="section-tag" style="text-align: left;">Asesoría real</div>
-            <h3 style="font-size:1.7rem;">Comienza hoy tu inversión frente al mar</h3>
-            <p style="margin: 1rem 0;">Te guiamos desde la elección del lote hasta la escrituración.</p>
-            <div>
-                <span><i class="fab fa-whatsapp"></i> +52 998 345 7890</span><br>
-                <span><i class="fas fa-envelope"></i> hola@cumbreserena.mx</span><br>
-                <span><i class="fas fa-clock"></i> Lun a Vie 9am - 7pm</span>
-            </div>
-        </div>
-        <div>
-            <form id="lightForm">
-                <input type="text" placeholder="Nombre completo" id="nameLight" style="width:100%; padding:0.8rem; border-radius:50px; border:1px solid #cde0d8; margin-bottom:0.8rem;">
-                <input type="email" placeholder="Correo electrónico" id="emailLight" style="width:100%; padding:0.8rem; border-radius:50px; border:1px solid #cde0d8; margin-bottom:0.8rem;">
-                <button type="submit" class="btn-primary" style="background:#1f5e4a; color:white; width:100%; border:none;">Enviar mensaje <i class="fas fa-arrow-right"></i></button>
-                <p id="formFeedback" style="font-size:0.7rem; margin-top:0.5rem; color:#2c7a5e;"></p>
-            </form>
-        </div>
+      <article class="card">
+        <div class="icon">🍃</div>
+        <h3>Limpieza de jardines</h3>
+        <p>Retiro de hojas, residuos vegetales y limpieza de jardineras.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌿</div>
+        <h3>Cuidado del césped</h3>
+        <p>Corte y mantenimiento para que tu césped se vea parejo y saludable.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪴</div>
+        <h3>Plantas y jardineras</h3>
+        <p>Apoyo con el cuidado y la organización de plantas para patios y entradas.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏡</div>
+        <h3>Mejora de espacios</h3>
+        <p>Trabajos de mejora para jardines residenciales y espacios exteriores.</p>
+      </article>
     </div>
-</div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <img
+      src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1000&q=85"
+      alt="Jardín cuidado y rodeado de vegetación"
+      loading="lazy">
+
+    <div>
+      <span class="eyebrow" style="color:#679746">Rey Jardinería</span>
+      <h2>Un jardín bonito hace la diferencia.</h2>
+      <p>
+        Ofrecemos atención personalizada para ayudarte a conservar
+        tus espacios verdes en buenas condiciones. Escuchamos tus
+        necesidades y te orientamos sobre el trabajo que requiere tu jardín.
+      </p>
+      <ul>
+        <li>✓ Atención personalizada</li>
+        <li>✓ Cotización antes de comenzar</li>
+        <li>✓ Servicios para distintos espacios</li>
+        <li>✓ Atención en Querétaro y zonas por confirmar</li>
+      </ul>
+      <a href="#contacto" class="btn" style="background:#173f2b;color:white">Contactar a Rey</a>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow" style="color:#679746">Fácil y transparente</span>
+      <h2>¿Cómo trabajamos?</h2>
+    </div>
+    <div class="process">
+      <div class="step">
+        <strong>01. Nos cuentas</strong>
+        <p>Describe el trabajo que necesitas y la zona donde se encuentra tu jardín.</p>
+      </div>
+      <div class="step">
+        <strong>02. Cotizamos</strong>
+        <p>Revisamos los detalles para orientar el precio del servicio.</p>
+      </div>
+      <div class="step">
+        <strong>03. Coordinamos</strong>
+        <p>Confirmamos el alcance del trabajo y la fecha de atención.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>¡Dale nueva vida a tu jardín!</h2>
+    <p>Solicita una cotización para tu hogar o negocio en Querétaro.</p>
+    <a href="#contacto" class="btn">Quiero una cotización ↗</a>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow" style="color:#679746">Contacto</span>
+      <h2>Cuéntanos qué necesita tu jardín.</h2>
+      <p>
+        Completa el formulario y te prepararemos un mensaje
+        para contactar a Rey por WhatsApp.
+      </p>
+      <p>📍 Querétaro, México</p>
+      <p>🌿 Servicio sujeto a disponibilidad y zona de cobertura.</p>
+    </div>
+
+    <form id="formulario">
+      <h3>Solicitar cotización</h3>
+
+      <label for="nombre">Nombre *</label>
+      <input id="nombre" name="nombre" required placeholder="Tu nombre">
+
+      <label for="servicio">Servicio que necesitas *</label>
+      <select id="servicio" name="servicio" required>
+        <option value="">Selecciona una opción</option>
+        <option>Mantenimiento de jardines</option>
+        <option>Poda y perfilado</option>
+        <option>Limpieza de áreas verdes</option>
+        <option>Cuidado del césped</option>
+        <option>Plantas y jardineras</option>
+        <option>Mejora de espacios exteriores</option>
+        <option>Otro servicio</option>
+      </select>
+
+      <label for="zona">Colonia o zona *</label>
+      <input id="zona" name="zona" required placeholder="Ej. Centro, Juriquilla...">
+
+      <label for="detalles">Detalles del trabajo</label>
+      <textarea id="detalles" name="detalles" placeholder="Cuéntanos qué necesitas..."></textarea>
+
+      <button type="submit" class="btn">Enviar por WhatsApp ↗</button>
+    </form>
+  </div>
+</section>
+</main>
 
 <footer>
-    <p><i class="fas fa-mountain"></i> Inmobiliaria Cumbre Serena · Playa paradisíaca · Cada lote con recorrido virtual 360°</p>
-    <div style="margin-top: 6px;">by design@drako2026</div>
+  <div class="container">
+    <h3>🌿 Rey Jardinería</h3>
+    <p>Servicios de jardinería en Querétaro, México.</p>
+    <p>© <span id="anio"></span> Rey Jardinería. Todos los derechos reservados.</p>
+  </div>
 </footer>
 
-<!-- MODAL RECORRIDO VIRTUAL -->
-<div id="virtualModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 id="modalTitle"><i class="fas fa-vr-cardboard"></i> Recorrido 360° · Lote</h3>
-            <button class="close-modal" id="closeModalBtn">&times;</button>
-        </div>
-        <div class="virtual-container">
-            <div id="panoramaView" class="panorama-frame"></div>
-            <div class="instruccion">
-                <span class="drag-hint"><i class="fas fa-mouse-pointer"></i> Arrastra para mover la vista 360°</span>
-                <span class="drag-hint"><i class="fas fa-mobile-alt"></i> Toca y desliza en móvil</span>
-            </div>
-            <button id="resetViewBtn" class="btn-virtual"><i class="fas fa-sync-alt"></i> Cambiar vista / Reiniciar</button>
-        </div>
-    </div>
-</div>
+<a href="#contacto" class="whatsapp" aria-label="Contactar por WhatsApp">☏ WhatsApp</a>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 700, once: true, offset: 60 });
+// IMPORTANTE: reemplaza este número por el WhatsApp REAL de Rey.
+// Usa código de país y número, sin +, espacios ni guiones.
+// Ejemplo ficticio de México: 524421234567
+const WHATSAPP_REY = "524420000000";
 
-    // ----- RECORRIDO VIRTUAL CON NUEVAS IMÁGENES PANORÁMICAS -----
-    const modal = document.getElementById('virtualModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const panorama = document.getElementById('panoramaView');
-    
-    const toursConfig = {
-        jade: {
-            nombre: 'Lote Mar de Jade',
-            imagenes: [
-                'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=1600&h=600&fit=crop'
-            ]
-        },
-        miramar: {
-            nombre: 'Reserva Miramar',
-            imagenes: [
-                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1600&h=600&fit=crop'
-            ]
-        },
-        villas: {
-            nombre: 'Villas del Pacífico',
-            imagenes: [
-                'https://images.unsplash.com/photo-1508615070457-7baeba4003ab?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1600&h=600&fit=crop',
-                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&h=600&fit=crop'
-            ]
-        }
-    };
-    
-    let currentTourImages = [];
-    let currentImgIndex = 0;
-    let currentX = 50;
-    let currentY = 50;
-    let isDragging = false;
-    let startX = 0, startY = 0;
-    let startPanX = 0, startPanY = 0;
-    
-    function updatePanoramaBackground() {
-        if(panorama && currentTourImages.length > 0) {
-            panorama.style.backgroundImage = `url('${currentTourImages[currentImgIndex]}')`;
-            panorama.style.backgroundSize = 'auto 100%';
-            panorama.style.backgroundRepeat = 'no-repeat';
-            panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
-        }
-    }
-    
-    function startDrag(e) {
-        isDragging = true;
-        const clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
-        const clientY = e.clientY ?? (e.touches ? e.touches[0].clientY : 0);
-        startX = clientX;
-        startY = clientY;
-        startPanX = currentX;
-        startPanY = currentY;
-        panorama.style.cursor = 'grabbing';
-        e.preventDefault();
-    }
-    
-    function onDrag(e) {
-        if (!isDragging) return;
-        const clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
-        const clientY = e.clientY ?? (e.touches ? e.touches[0].clientY : 0);
-        const deltaX = clientX - startX;
-        const deltaY = clientY - startY;
-        let newX = startPanX + (deltaX / 3);
-        let newY = startPanY + (deltaY / 5);
-        newX = Math.min(100, Math.max(0, newX));
-        newY = Math.min(100, Math.max(0, newY));
-        currentX = newX;
-        currentY = newY;
-        panorama.style.backgroundPosition = `${currentX}% ${currentY}%`;
-    }
-    
-    function endDrag() {
-        isDragging = false;
-        panorama.style.cursor = 'grab';
-    }
-    
-    function resetView() {
-        currentX = 50;
-        currentY = 50;
-        if(currentTourImages.length > 0) {
-            currentImgIndex = (currentImgIndex + 1) % currentTourImages.length;
-            updatePanoramaBackground();
-        }
-    }
-    
-    if(panorama) {
-        panorama.style.cursor = 'grab';
-        panorama.addEventListener('mousedown', startDrag);
-        window.addEventListener('mousemove', onDrag);
-        window.addEventListener('mouseup', endDrag);
-        panorama.addEventListener('touchstart', startDrag, {passive: false});
-        window.addEventListener('touchmove', onDrag, {passive: false});
-        window.addEventListener('touchend', endDrag);
-    }
-    
-    function openTour(loteId) {
-        const tour = toursConfig[loteId];
-        if(!tour) return;
-        currentTourImages = [...tour.imagenes];
-        currentImgIndex = 0;
-        currentX = 50;
-        currentY = 50;
-        modalTitle.innerHTML = `<i class="fas fa-vr-cardboard"></i> Recorrido 360° · ${tour.nombre}`;
-        updatePanoramaBackground();
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    
-    document.querySelectorAll('.tourBtn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const tourId = btn.getAttribute('data-tour');
-            if(tourId) openTour(tourId);
-        });
-    });
-    
-    document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
-    document.getElementById('resetViewBtn')?.addEventListener('click', resetView);
-    window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-    
-    // Formulario
-    const form = document.getElementById('lightForm');
-    const feedback = document.getElementById('formFeedback');
-    if(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('nameLight').value.trim();
-            const email = document.getElementById('emailLight').value.trim();
-            if(!name || !email) {
-                feedback.innerHTML = '⚠️ Completa tu nombre y correo.';
-                feedback.style.color = '#b1624b';
-                setTimeout(() => feedback.innerHTML = '', 2500);
-                return;
-            }
-            feedback.innerHTML = `✅ ¡Gracias ${name}! Te contactaremos a ${email} muy pronto. 🌊`;
-            feedback.style.color = '#1f6e54';
-            form.reset();
-            setTimeout(() => feedback.innerHTML = '', 4000);
-        });
-    }
-    
-    document.querySelectorAll('.infoLoteBtn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            alert('📞 Para más información, contáctanos vía WhatsApp o formulario. ¡Te asesoramos sin costo!');
-        });
-    });
-    
-    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline-light').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href && href.startsWith('#') && href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
+document.getElementById("anio").textContent = new Date().getFullYear();
+
+document.getElementById("formulario").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (WHATSAPP_REY === "524420000000") {
+    alert("Primero configura el número real de WhatsApp de Rey en el código.");
+    return;
+  }
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const servicio = document.getElementById("servicio").value;
+  const zona = document.getElementById("zona").value.trim();
+  const detalles = document.getElementById("detalles").value.trim();
+
+  const mensaje =
+    "Hola, Rey. Quiero solicitar una cotización de jardinería.%0A%0A" +
+    "Nombre: " + encodeURIComponent(nombre) + "%0A" +
+    "Servicio: " + encodeURIComponent(servicio) + "%0A" +
+    "Zona: " + encodeURIComponent(zona) + "%0A" +
+    "Detalles: " + encodeURIComponent(detalles || "Sin detalles adicionales");
+
+  window.open(
+    "https://wa.me/" + WHATSAPP_REY + "?text=" + mensaje,
+    "_blank",
+    "noopener,noreferrer"
+  );
+});
 </script>
+
 </body>
 </html>
